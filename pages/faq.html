@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FAQ — Rackwyse Docs</title>
+  <meta name="description" content="Frequently asked questions about Rackwyse — analysis limits, file formats, data security, and more."/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="stylesheet" href="/css/docs.css"/>
+  <style>
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0; cursor: pointer; font-size: 15px; font-weight: 500;
+      color: var(--text); gap: 12px; list-style: none;
+    }
+    .faq-question:hover { color: var(--accent-dark); }
+    .faq-answer { padding: 0 0 18px; color: var(--text2); line-height: 1.75; font-size: 14px; display: none; }
+    .faq-answer.open { display: block; }
+    .faq-chevron { flex-shrink: 0; transition: transform .2s; color: var(--muted2); }
+    .faq-question.open .faq-chevron { transform: rotate(180deg); }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <a href="/" class="topbar-logo">
+    <div class="topbar-logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 13L8 3L12 13H4Z" fill="#060c0a" opacity="0.9"/></svg></div>
+    <span class="topbar-logo-text">Rackwyse</span><span class="topbar-logo-badge">Docs</span>
+  </a>
+  <div class="topbar-search">
+    <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 10L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <input type="text" id="search-input" placeholder="Search documentation..." autocomplete="off"/>
+    <div id="search-results"></div>
+  </div>
+  <div class="topbar-links">
+    <a href="https://app.rackwyse.com" class="topbar-link" target="_blank">App ↗</a>
+    <a href="https://app.rackwyse.com/register" class="topbar-link topbar-link-primary" target="_blank">Get Started</a>
+  </div>
+</header>
+<div class="layout">
+<nav class="sidebar">
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Overview</div>
+    <a href="/" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg>Home</a>
+    <a href="/pages/getting-started.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L10.5 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H5.5L8 1Z" fill-opacity=".3" stroke="currentColor" stroke-width="1.2"/></svg>Getting Started</a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Uploading Bills</div>
+    <a href="/pages/uploading-bills.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1V10M5 4L8 1L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M2 11V13C2 13.6 2.4 14 3 14H13C13.6 14 14 13.6 14 13V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Uploading Your First Bill</a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Analysis</div>
+    <a href="/pages/understanding-reports.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 12h2v2H2zM5 9h2v5H5zM8 6h2v8H8zM11 3h2v11h-2z" fill-opacity=".7"/></svg>Understanding Your Report</a>
+    <a href="/pages/savings-tracker.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 10L6 6L9 9L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Savings Tracker</a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Account & Billing</div>
+    <a href="/pages/billing.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".2" stroke="currentColor" stroke-width="1.5"/><path d="M1 7H15" stroke="currentColor" stroke-width="1.5"/></svg>Plans & Billing</a>
+    <a href="/pages/account.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="5" r="3" fill-opacity=".3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14C2 11.2 4.7 9 8 9C11.3 9 14 11.2 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Account Settings</a>
+    <a href="/pages/connections.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="4" cy="8" r="2.5" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="4" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="12" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 7L10 5M6.5 9L10 11" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Cloud Connections</a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Help</div>
+    <a href="/pages/faq.html" class="sidebar-link active"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6.5" fill-opacity=".1" stroke="currentColor" stroke-width="1.3"/><path d="M6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10 6C10 7.1 9 7.6 8 8.4V9M8 11.5V12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>FAQ</a>
+    <a href="mailto:support@rackwyse.com" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".15" stroke="currentColor" stroke-width="1.3"/><path d="M1 5L8 9L15 5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Contact Support</a>
+  </div>
+</nav>
+<div style="flex:1;overflow:hidden">
+<main class="main">
+  <div class="breadcrumb"><a href="/">Docs</a><span>›</span><span>FAQ</span></div>
+  <div class="page-header">
+    <div class="page-eyebrow">Help</div>
+    <h1 class="page-title">Frequently Asked Questions</h1>
+    <p class="page-desc">Answers to common questions about Rackwyse. Can't find what you need? Email <a href="mailto:support@rackwyse.com">support@rackwyse.com</a>.</p>
+  </div>
+
+  <h2 id="general">General</h2>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      How does Rackwyse analyse my bill?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      Rackwyse uses an AI engine trained on cloud billing best practices and known waste patterns. When you upload a billing CSV, the engine parses your line items, identifies anomalies and inefficiencies, and cross-references them against optimal usage benchmarks for each service type. Results are generated in under 60 seconds.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Do I need to give Rackwyse access to my cloud account?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      No. You can use Rackwyse entirely by uploading billing export CSV files — no cloud credentials, API keys, or access permissions needed. Cloud Connections (optional, for Pro/Team plans) allow you to connect an account for streamlined uploads, but this is never required.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Can Rackwyse make changes to my cloud infrastructure?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      No. Rackwyse is a read-only analysis tool. It never modifies, deletes, starts, or stops any cloud resources. Even when using Cloud Connections, the permissions granted are strictly read-only billing data access. All changes to your infrastructure must be made by you or your team directly in the cloud console.
+    </div>
+  </div>
+
+  <h2 id="limits">Analysis Limits</h2>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      How many analyses can I run?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      Analysis limits depend on your plan: Free (1/month), Starter (3/month), Pro (20/month), Team (100/month). Your analysis count resets on the 1st of each month. You can see your current usage in the dashboard or in Account → Billing & Plan.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      What happens when I reach my limit?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      When you reach your monthly analysis limit, you will see an upgrade prompt when you try to upload a new bill. You can upgrade your plan immediately to continue analysing, or wait for your limit to reset on the 1st of next month.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Do unused analyses roll over to next month?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      No. Analysis limits reset on the 1st of each month. Unused analyses do not carry over.
+    </div>
+  </div>
+
+  <h2 id="formats">File Formats</h2>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      What file types does Rackwyse accept?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      Rackwyse accepts CSV files (.csv) from AWS, GCP, and Azure billing exports. Maximum file size is 50MB. If your export is compressed (.csv.gz), decompress it before uploading.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      What billing exports are supported?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      AWS: Bills CSV (from Billing Console), Cost & Usage Report (CUR). GCP: Billing Reports CSV (from Cloud Console). Azure: Usage Details CSV (from Cost Management). Other formats may work but are not officially supported.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Can I upload multiple months at once?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      Each upload is one analysis. To compare multiple months, upload each month separately and use the Savings Tracker comparison feature to see how your spending has changed over time.
+    </div>
+  </div>
+
+  <h2 id="privacy">Data Privacy & Security</h2>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Is my billing data secure?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      Yes. All data is transmitted over HTTPS (TLS 1.2+). Billing files are processed in memory and not permanently stored in raw form. Analysis results (findings and savings estimates) are stored securely in our database. We do not share your billing data with third parties.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Does Rackwyse store my cloud credentials?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      When using Cloud Connections, Rackwyse stores only the IAM Role ARN (for AWS) or OAuth tokens (for GCP/Azure). We do not store access keys, passwords, or secret keys. IAM roles use cross-account trust with an External ID for additional security. You can revoke access at any time by deleting the IAM role or revoking the OAuth token.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Can I delete my data?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      Yes. To delete your account and all associated data, email support@rackwyse.com. We will process deletion requests within 30 days in accordance with GDPR and applicable data protection laws.
+    </div>
+  </div>
+
+  <h2 id="billing-faq">Billing</h2>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      When am I charged?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      You are charged immediately when you subscribe to a paid plan. Subsequent charges occur on the same date each month (your billing anniversary). If your card fails, you will receive an email notification and have a grace period to update your payment method.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Can I get a refund?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      If you are not satisfied with Rackwyse within the first 7 days of your paid subscription, contact support@rackwyse.com for a full refund. After 7 days, refunds are considered on a case-by-case basis.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">
+      Do you offer annual plans?
+      <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="faq-answer">
+      Yes. Annual plans are available at a discount compared to monthly billing. Contact support@rackwyse.com or check the pricing page for current annual pricing.
+    </div>
+  </div>
+
+  <div style="margin-top:48px;padding:28px 32px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
+    <div style="font-size:18px;font-weight:600;margin-bottom:8px">Still have questions?</div>
+    <p style="color:var(--muted);margin-bottom:20px">Our team typically responds within a few hours during business hours.</p>
+    <a href="mailto:support@rackwyse.com" class="topbar-link topbar-link-primary" style="display:inline-flex">Email support@rackwyse.com</a>
+  </div>
+
+  <div class="page-nav">
+    <a href="/pages/connections.html" class="page-nav-item">
+      <span class="page-nav-label">← Previous</span>
+      <span class="page-nav-title">Cloud Connections</span>
+    </a>
+    <a href="/" class="page-nav-item next">
+      <span class="page-nav-label">Back to</span>
+      <span class="page-nav-title">Documentation Home</span>
+    </a>
+  </div>
+</main>
+<footer class="docs-footer">
+  <div>© 2026 Rackwyse. All rights reserved.</div>
+  <div style="display:flex;gap:20px"><a href="https://app.rackwyse.com">App</a><a href="mailto:support@rackwyse.com">Support</a></div>
+</footer>
+</div>
+</div>
+<script src="/js/docs.js"></script>
+<script>
+function toggleFAQ(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-answer.open').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-question.open').forEach(b => b.classList.remove('open'));
+  // Open this one if it was closed
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+</script>
+</body>
+</html>

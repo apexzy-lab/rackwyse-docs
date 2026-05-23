@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cloud Connections — Rackwyse Docs</title>
+  <meta name="description" content="Connect your AWS, GCP, and Azure cloud accounts to Rackwyse for automated billing analysis."/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="stylesheet" href="/css/docs.css"/>
+</head>
+<body>
+<header class="topbar">
+  <a href="/" class="topbar-logo">
+    <div class="topbar-logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 13L8 3L12 13H4Z" fill="#060c0a" opacity="0.9"/></svg></div>
+    <span class="topbar-logo-text">Rackwyse</span><span class="topbar-logo-badge">Docs</span>
+  </a>
+  <div class="topbar-search">
+    <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 10L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <input type="text" id="search-input" placeholder="Search documentation..." autocomplete="off"/>
+    <div id="search-results"></div>
+  </div>
+  <div class="topbar-links">
+    <a href="https://app.rackwyse.com" class="topbar-link" target="_blank">App ↗</a>
+    <a href="https://app.rackwyse.com/register" class="topbar-link topbar-link-primary" target="_blank">Get Started</a>
+  </div>
+</header>
+<div class="layout">
+<nav class="sidebar">
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Overview</div>
+    <a href="/" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg>Home</a>
+    <a href="/pages/getting-started.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L10.5 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H5.5L8 1Z" fill-opacity=".3" stroke="currentColor" stroke-width="1.2"/></svg>Getting Started</a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Uploading Bills</div>
+    <a href="/pages/uploading-bills.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1V10M5 4L8 1L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M2 11V13C2 13.6 2.4 14 3 14H13C13.6 14 14 13.6 14 13V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Uploading Your First Bill</a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Analysis</div>
+    <a href="/pages/understanding-reports.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 12h2v2H2zM5 9h2v5H5zM8 6h2v8H8zM11 3h2v11h-2z" fill-opacity=".7"/></svg>Understanding Your Report</a>
+    <a href="/pages/savings-tracker.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 10L6 6L9 9L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Savings Tracker</a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Account & Billing</div>
+    <a href="/pages/billing.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".2" stroke="currentColor" stroke-width="1.5"/><path d="M1 7H15" stroke="currentColor" stroke-width="1.5"/></svg>Plans & Billing</a>
+    <a href="/pages/account.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="5" r="3" fill-opacity=".3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14C2 11.2 4.7 9 8 9C11.3 9 14 11.2 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Account Settings</a>
+    <a href="/pages/connections.html" class="sidebar-link active"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="4" cy="8" r="2.5" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="4" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="12" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 7L10 5M6.5 9L10 11" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Cloud Connections</a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Help</div>
+    <a href="/pages/faq.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6.5" fill-opacity=".1" stroke="currentColor" stroke-width="1.3"/><path d="M6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10 6C10 7.1 9 7.6 8 8.4V9M8 11.5V12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>FAQ</a>
+    <a href="mailto:support@rackwyse.com" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".15" stroke="currentColor" stroke-width="1.3"/><path d="M1 5L8 9L15 5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Contact Support</a>
+  </div>
+</nav>
+<div style="flex:1;overflow:hidden">
+<main class="main">
+  <div class="breadcrumb"><a href="/">Docs</a><span>›</span><span>Cloud Connections</span></div>
+  <div class="page-header">
+    <div class="page-eyebrow">Connections</div>
+    <h1 class="page-title">Cloud Connections</h1>
+    <p class="page-desc">Connect your cloud accounts to Rackwyse for streamlined analysis. Connections are read-only and never modify your infrastructure.</p>
+  </div>
+
+  <div class="callout callout-info">
+    <div class="callout-icon">ℹ️</div>
+    <div class="callout-body">
+      <div class="callout-title">Connections vs manual uploads</div>
+      You do not need to connect a cloud account to use Rackwyse. You can always upload billing exports manually. Cloud connections are optional and make the upload process faster.
+    </div>
+  </div>
+
+  <h2 id="aws">☁️ AWS IAM Role Setup</h2>
+  <p>Rackwyse uses an <strong>IAM Role</strong> with read-only billing permissions to access your AWS cost data. This is the most secure method — no access keys are stored, and permissions are limited to billing data only.</p>
+
+  <h3>Required permissions</h3>
+  <p>The IAM role requires only the following read-only policies:</p>
+  <ul style="margin:12px 0 16px 24px;color:var(--text2);line-height:2">
+    <li><code>ce:GetCostAndUsage</code> — read cost and usage data</li>
+    <li><code>ce:GetDimensionValues</code> — read service dimension data</li>
+    <li><code>aws-portal:ViewBilling</code> — view billing console data</li>
+  </ul>
+
+  <div class="callout callout-tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <div class="callout-title">Read-only access only</div>
+      Rackwyse never requests write permissions. The role cannot create, modify, or delete any AWS resources. It can only read billing and cost data.
+    </div>
+  </div>
+
+  <h3>Setup steps</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Go to Connections in Rackwyse</div>
+        <div class="step-desc">Click <strong>Connections</strong> in the left sidebar. Click <strong>Connect AWS</strong>. Note the <strong>External ID</strong> shown — you will need this in the next steps.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Open IAM in AWS Console</div>
+        <div class="step-desc">Log in to the <a href="https://console.aws.amazon.com/iam" target="_blank">AWS IAM Console</a>. Go to <strong>Roles → Create Role</strong>.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Configure the trust relationship</div>
+        <div class="step-desc">Select <strong>Another AWS account</strong> as the trusted entity. Enter the Rackwyse AWS Account ID shown on the Connections page. Check <strong>Require external ID</strong> and enter the External ID from step 1.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Attach the billing policy</div>
+        <div class="step-desc">On the Permissions page, click <strong>Create Policy</strong>. Paste in the read-only billing policy JSON shown on the Connections page. Give the policy a name like <code>RackwyseReadOnlyBilling</code>.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Name and create the role</div>
+        <div class="step-desc">Give the role a name like <code>RackwyseRole</code> and create it. Copy the <strong>Role ARN</strong> from the role summary page (it looks like <code>arn:aws:iam::123456789012:role/RackwyseRole</code>).</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Paste the ARN in Rackwyse</div>
+        <div class="step-desc">Back in the Rackwyse Connections page, paste the Role ARN and click <strong>Connect</strong>. Rackwyse will verify the connection and confirm it is working.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="gcp">🔵 GCP Connection</h2>
+  <p>GCP connections use a <strong>Service Account</strong> with read-only billing viewer permissions. The connection setup guide is available on the Connections page in your Rackwyse account.</p>
+
+  <h2 id="azure">🔷 Azure Connection</h2>
+  <p>Azure connections use <strong>OAuth</strong> with a read-only Cost Management Reader role. Click <strong>Connect Azure</strong> on the Connections page and follow the OAuth flow to grant read-only access.</p>
+
+  <h2 id="connection-limits">Connection limits by plan</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Plan</th><th>Cloud connections</th></tr></thead>
+      <tbody>
+        <tr><td>Free</td><td>1</td></tr>
+        <tr><td>Starter</td><td>3</td></tr>
+        <tr><td>Pro</td><td>10</td></tr>
+        <tr><td>Team</td><td>Unlimited</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-nav">
+    <a href="/pages/account.html" class="page-nav-item">
+      <span class="page-nav-label">← Previous</span>
+      <span class="page-nav-title">Account Settings</span>
+    </a>
+    <a href="/pages/faq.html" class="page-nav-item next">
+      <span class="page-nav-label">Next →</span>
+      <span class="page-nav-title">FAQ</span>
+    </a>
+  </div>
+</main>
+<footer class="docs-footer">
+  <div>© 2026 Rackwyse. All rights reserved.</div>
+  <div style="display:flex;gap:20px"><a href="https://app.rackwyse.com">App</a><a href="mailto:support@rackwyse.com">Support</a></div>
+</footer>
+</div>
+</div>
+<script src="/js/docs.js"></script>
+</body>
+</html>
