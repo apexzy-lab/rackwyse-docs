@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Anomaly Alerts — Rackwyse Docs</title>
+  <meta name="description" content="How Rackwyse detects and alerts you to unexpected cloud spend spikes."/>
+  <link rel="stylesheet" href="/css/docs.css"/>
+</head>
+<body>
+<div class="docs-layout">
+  <aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-logo">
+      <div class="sidebar-logo-icon"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 4L10 9L13 6L14 12H2Z" fill="#060c0a"/></svg></div>
+      Rackwyse Docs
+    </a>
+    <div class="sidebar-top-links">
+      <a href="https://app.rackwyse.com" class="sidebar-top-link">App ↗</a>
+      <a href="https://app.rackwyse.com/register" class="sidebar-top-link">Get Started</a>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">Overview</div>
+    <a href="/index.html" class="sidebar-link">Home</a>
+    <a href="/pages/getting-started.html" class="sidebar-link">Getting Started</a>
+
+    <div class="sidebar-section">Connecting Cloud</div>
+    <a href="/pages/connections.html" class="sidebar-link">Cloud Connections</a>
+    <a href="/pages/uploading-bills.html" class="sidebar-link">Uploading Bills (CSV)</a>
+
+    <div class="sidebar-section">Analysis</div>
+    <a href="/pages/understanding-reports.html" class="sidebar-link">Understanding Reports</a>
+    <a href="/pages/fix-commands.html" class="sidebar-link">Fix Commands</a>
+    <a href="/pages/savings-tracker.html" class="sidebar-link">Savings Tracker</a>
+    <a href="/pages/anomaly-alerts.html" class="sidebar-link">Anomaly Alerts</a>
+
+    <div class="sidebar-section">Team Features</div>
+    <a href="/pages/team.html" class="sidebar-link">Team Collaboration</a>
+    <a href="/pages/slack.html" class="sidebar-link">Slack Integration</a>
+
+    <div class="sidebar-section">Account & Billing</div>
+    <a href="/pages/billing.html" class="sidebar-link">Plans & Billing</a>
+    <a href="/pages/account.html" class="sidebar-link">Account Settings</a>
+    <a href="/pages/api.html" class="sidebar-link">API Access</a>
+
+    <div class="sidebar-section">Help</div>
+    <a href="/pages/faq.html" class="sidebar-link">FAQ</a>
+    <a href="mailto:support@rackwyse.com" class="sidebar-link">Contact Support</a>
+  </nav>
+  <div class="docs-footer">
+    <span>© 2026 Rackwyse</span>
+    <div style="display:flex;gap:12px">
+      <a href="https://app.rackwyse.com">App</a>
+      <a href="mailto:support@rackwyse.com">Support</a>
+    </div>
+  </div>
+</aside>
+  <main class="main">
+    
+<div class="breadcrumb"><a href="/index.html">Docs</a> › Anomaly Alerts</div>
+<h1>Anomaly Alerts</h1>
+<p class="page-subtitle">Rackwyse automatically detects unusual cloud spend and alerts you before costs spiral out of control.</p>
+
+<h2>How anomaly detection works</h2>
+<p>Rackwyse runs three types of spend monitoring:</p>
+
+<h3>1. Month-over-month spike detection</h3>
+<p>Every time a new analysis completes (via upload or auto-sync), Rackwyse compares the current spend to the previous analysis for the same provider. If spend changed by <strong>15% or more</strong> in either direction, an email alert fires automatically.</p>
+<p>The email shows:</p>
+<ul>
+  <li>Current vs previous month spend</li>
+  <li>Dollar delta and percentage change</li>
+  <li>New findings identified in the current period</li>
+  <li>Link to the full analysis</li>
+</ul>
+
+<h3>2. Daily anomaly check</h3>
+<p>For active AWS connections with <code>CloudWatchReadOnlyAccess</code>, Rackwyse runs a daily check at <strong>02:00 UTC</strong>. It compares the 7-day rolling average spend to the previous 7 days. If daily spend is up <strong>30% or more</strong>, an alert email fires immediately.</p>
+<div class="info-box info"><div class="info-icon">ℹ️</div><div>Daily anomaly checks require an active AWS cloud connection with CloudWatch permissions. CSV-only users receive month-over-month alerts only.</div></div>
+
+<h3>3. Spend velocity tracker</h3>
+<p>The dashboard shows a <strong>Spend velocity</strong> widget with per-provider month-over-month arrows and percentage changes. This is a visual indicator — no action required.</p>
+
+<h2>Alert email format</h2>
+<p>Anomaly alert emails are sent to the account owner's email address. They include:</p>
+<ul>
+  <li>Provider and billing period</li>
+  <li>Spend comparison (before → after)</li>
+  <li>Delta amount and percentage</li>
+  <li>Direction indicator (spike vs reduction)</li>
+  <li>Direct link to dashboard</li>
+</ul>
+
+<h2>Slack alerts</h2>
+<p>If you have a <a href="/pages/slack.html">Slack webhook configured</a>, anomaly alerts also post to your Slack channel automatically.</p>
+
+<h2>Disabling alerts</h2>
+<p>To disable anomaly alert emails, go to <strong>Account → Preferences → Email Notifications</strong> and toggle off <strong>Cost Spike Alerts</strong>.</p>
+
+    <div class="page-nav"><a href="/pages/savings-tracker.html" class="page-nav-btn"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Savings Tracker</span></a><a href="/pages/team.html" class="page-nav-btn next"><span class="page-nav-label">Next →</span><span class="page-nav-title">Team Collaboration</span></a></div>
+  </main>
+</div>
+<script src="/js/docs.js"></script>
+</body>
+</html>

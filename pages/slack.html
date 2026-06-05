@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Slack Integration — Rackwyse Docs</title>
+  <meta name="description" content="Send Rackwyse alerts and analysis results to your Slack channel."/>
+  <link rel="stylesheet" href="/css/docs.css"/>
+</head>
+<body>
+<div class="docs-layout">
+  <aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-logo">
+      <div class="sidebar-logo-icon"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 4L10 9L13 6L14 12H2Z" fill="#060c0a"/></svg></div>
+      Rackwyse Docs
+    </a>
+    <div class="sidebar-top-links">
+      <a href="https://app.rackwyse.com" class="sidebar-top-link">App ↗</a>
+      <a href="https://app.rackwyse.com/register" class="sidebar-top-link">Get Started</a>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">Overview</div>
+    <a href="/index.html" class="sidebar-link">Home</a>
+    <a href="/pages/getting-started.html" class="sidebar-link">Getting Started</a>
+
+    <div class="sidebar-section">Connecting Cloud</div>
+    <a href="/pages/connections.html" class="sidebar-link">Cloud Connections</a>
+    <a href="/pages/uploading-bills.html" class="sidebar-link">Uploading Bills (CSV)</a>
+
+    <div class="sidebar-section">Analysis</div>
+    <a href="/pages/understanding-reports.html" class="sidebar-link">Understanding Reports</a>
+    <a href="/pages/fix-commands.html" class="sidebar-link">Fix Commands</a>
+    <a href="/pages/savings-tracker.html" class="sidebar-link">Savings Tracker</a>
+    <a href="/pages/anomaly-alerts.html" class="sidebar-link">Anomaly Alerts</a>
+
+    <div class="sidebar-section">Team Features</div>
+    <a href="/pages/team.html" class="sidebar-link">Team Collaboration</a>
+    <a href="/pages/slack.html" class="sidebar-link">Slack Integration</a>
+
+    <div class="sidebar-section">Account & Billing</div>
+    <a href="/pages/billing.html" class="sidebar-link">Plans & Billing</a>
+    <a href="/pages/account.html" class="sidebar-link">Account Settings</a>
+    <a href="/pages/api.html" class="sidebar-link">API Access</a>
+
+    <div class="sidebar-section">Help</div>
+    <a href="/pages/faq.html" class="sidebar-link">FAQ</a>
+    <a href="mailto:support@rackwyse.com" class="sidebar-link">Contact Support</a>
+  </nav>
+  <div class="docs-footer">
+    <span>© 2026 Rackwyse</span>
+    <div style="display:flex;gap:12px">
+      <a href="https://app.rackwyse.com">App</a>
+      <a href="mailto:support@rackwyse.com">Support</a>
+    </div>
+  </div>
+</aside>
+  <main class="main">
+    
+<div class="breadcrumb"><a href="/index.html">Docs</a> › Slack Integration</div>
+<h1>Slack Integration</h1>
+<p class="page-subtitle">Post analysis results, anomaly alerts, and weekly summaries directly to your Slack channel via webhook.</p>
+
+<h2>What Rackwyse posts to Slack</h2>
+<ul>
+  <li><strong>Analysis complete</strong> — when a new analysis finishes (upload or auto-sync)</li>
+  <li><strong>Anomaly alerts</strong> — when spend spikes 15%+ month-over-month</li>
+  <li><strong>Auto-sync complete</strong> — summary of findings from automatic monthly syncs</li>
+</ul>
+<p>Each Slack message includes provider, billing period, total spend, potential savings, top 5 findings, and a direct link to the dashboard.</p>
+
+<h2>Setting up the webhook</h2>
+<div class="steps">
+  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Create a Slack Incoming Webhook</h3><p>Go to <a href="https://api.slack.com/apps">api.slack.com/apps</a> → Create New App → From Scratch. Name it "Rackwyse". Under <strong>Incoming Webhooks</strong>, activate and add to a channel. Copy the webhook URL.</p></div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Add webhook URL to Rackwyse</h3><p>Go to <strong>Account → Preferences → Integrations</strong>. Paste the webhook URL in the <strong>Slack Webhook URL</strong> field and click <strong>Save</strong>.</p></div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Test the connection</h3><p>Click <strong>Test</strong> next to the Slack webhook URL. A test message will appear in your Slack channel confirming the connection works.</p></div></div>
+</div>
+
+<h2>Generic webhook</h2>
+<p>In addition to Slack, Rackwyse supports a <strong>Generic Webhook URL</strong> for integrating with any webhook-compatible service (PagerDuty, Teams, Discord, custom endpoints).</p>
+<p>The generic webhook payload is a JSON object with:</p>
+<ul>
+  <li><code>event</code> — event type (e.g. <code>analysis.complete</code>)</li>
+  <li><code>timestamp</code> — ISO 8601 timestamp</li>
+  <li><code>analysis</code> — provider, period, totalSpend, potentialSavings, findingsCount</li>
+  <li><code>findings</code> — array of top findings with ruleId, title, severity, estimatedSavings</li>
+  <li><code>dashboardUrl</code> — direct link to the analysis</li>
+</ul>
+
+    <div class="page-nav"><a href="/pages/team.html" class="page-nav-btn"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Team Collaboration</span></a><a href="/pages/billing.html" class="page-nav-btn next"><span class="page-nav-label">Next →</span><span class="page-nav-title">Plans & Billing</span></a></div>
+  </main>
+</div>
+<script src="/js/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>API Access — Rackwyse Docs</title>
+  <meta name="description" content="Use the Rackwyse REST API to submit analyses and retrieve findings programmatically."/>
+  <link rel="stylesheet" href="/css/docs.css"/>
+</head>
+<body>
+<div class="docs-layout">
+  <aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-logo">
+      <div class="sidebar-logo-icon"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 4L10 9L13 6L14 12H2Z" fill="#060c0a"/></svg></div>
+      Rackwyse Docs
+    </a>
+    <div class="sidebar-top-links">
+      <a href="https://app.rackwyse.com" class="sidebar-top-link">App ↗</a>
+      <a href="https://app.rackwyse.com/register" class="sidebar-top-link">Get Started</a>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">Overview</div>
+    <a href="/index.html" class="sidebar-link">Home</a>
+    <a href="/pages/getting-started.html" class="sidebar-link">Getting Started</a>
+
+    <div class="sidebar-section">Connecting Cloud</div>
+    <a href="/pages/connections.html" class="sidebar-link">Cloud Connections</a>
+    <a href="/pages/uploading-bills.html" class="sidebar-link">Uploading Bills (CSV)</a>
+
+    <div class="sidebar-section">Analysis</div>
+    <a href="/pages/understanding-reports.html" class="sidebar-link">Understanding Reports</a>
+    <a href="/pages/fix-commands.html" class="sidebar-link">Fix Commands</a>
+    <a href="/pages/savings-tracker.html" class="sidebar-link">Savings Tracker</a>
+    <a href="/pages/anomaly-alerts.html" class="sidebar-link">Anomaly Alerts</a>
+
+    <div class="sidebar-section">Team Features</div>
+    <a href="/pages/team.html" class="sidebar-link">Team Collaboration</a>
+    <a href="/pages/slack.html" class="sidebar-link">Slack Integration</a>
+
+    <div class="sidebar-section">Account & Billing</div>
+    <a href="/pages/billing.html" class="sidebar-link">Plans & Billing</a>
+    <a href="/pages/account.html" class="sidebar-link">Account Settings</a>
+    <a href="/pages/api.html" class="sidebar-link">API Access</a>
+
+    <div class="sidebar-section">Help</div>
+    <a href="/pages/faq.html" class="sidebar-link">FAQ</a>
+    <a href="mailto:support@rackwyse.com" class="sidebar-link">Contact Support</a>
+  </nav>
+  <div class="docs-footer">
+    <span>© 2026 Rackwyse</span>
+    <div style="display:flex;gap:12px">
+      <a href="https://app.rackwyse.com">App</a>
+      <a href="mailto:support@rackwyse.com">Support</a>
+    </div>
+  </div>
+</aside>
+  <main class="main">
+    
+<div class="breadcrumb"><a href="/index.html">Docs</a> › API Access</div>
+<h1>API Access</h1>
+<p class="page-subtitle">The Rackwyse REST API lets you submit billing CSVs and retrieve findings programmatically. Available on Team and Enterprise plans.</p>
+
+<div class="info-box info"><div class="info-icon">ℹ️</div><div>API access is available on <span class="badge badge-team">Team</span> and Enterprise plans.</div></div>
+
+<h2>Generating an API key</h2>
+<ol>
+  <li>Go to <strong>Account → API Access</strong></li>
+  <li>Click <strong>Generate API Key</strong></li>
+  <li>Copy the key immediately — it is only shown once</li>
+</ol>
+<p>API keys start with <code>rw_live_</code>. Keep them secure and do not commit them to source control.</p>
+
+<h2>Authentication</h2>
+<p>Include your API key in the <code>x-api-key</code> header on all requests:</p>
+<pre><code>x-api-key: rw_live_your_key_here</code></pre>
+
+<h2>Base URL</h2>
+<div class="code-block">https://app.rackwyse.com/api/v1</div>
+
+<h2>Endpoints</h2>
+
+<h3>GET /api/v1/status</h3>
+<p>Returns your account status and plan information.</p>
+<pre><code>curl https://app.rackwyse.com/api/v1/status \
+  -H "x-api-key: rw_live_your_key"</code></pre>
+
+<h3>GET /api/v1/analyses</h3>
+<p>Returns a list of your past analyses with summary data.</p>
+<pre><code>curl https://app.rackwyse.com/api/v1/analyses \
+  -H "x-api-key: rw_live_your_key"</code></pre>
+
+<h3>POST /api/v1/analyse</h3>
+<p>Submit a billing CSV for analysis. Returns findings JSON.</p>
+<pre><code>curl -X POST https://app.rackwyse.com/api/v1/analyse \
+  -H "x-api-key: rw_live_your_key" \
+  -F "file=@/path/to/billing.csv" \
+  -F "provider=aws"</code></pre>
+
+<h3>Response format</h3>
+<pre><code>{
+  "analysisId": "abc123",
+  "provider": "aws",
+  "billingPeriod": "May 2026",
+  "totalSpend": 1464.66,
+  "potentialSavings": 783.47,
+  "findingsCount": 21,
+  "findings": [
+    {
+      "ruleId": "EC2_NO_RESERVED",
+      "title": "On-Demand EC2 running 24/7 — switch to Reserved Instance",
+      "severity": "critical",
+      "service": "EC2",
+      "estimatedSavings": 100.80,
+      "fixDifficulty": "easy",
+      "fixTimeMinutes": 15
+    }
+  ]
+}</code></pre>
+
+<h2>Rate limits</h2>
+<p>API requests are rate limited to 200 requests per 15 minutes. The <code>x-ratelimit-remaining</code> header shows your remaining quota.</p>
+
+<h2>Revoking an API key</h2>
+<p>Go to <strong>Account → API Access → Revoke Key</strong>. The key is invalidated immediately.</p>
+
+    <div class="page-nav"><a href="/pages/account.html" class="page-nav-btn"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Account Settings</span></a><a href="/pages/faq.html" class="page-nav-btn next"><span class="page-nav-label">Next →</span><span class="page-nav-title">FAQ</span></a></div>
+  </main>
+</div>
+<script src="/js/docs.js"></script>
+</body>
+</html>

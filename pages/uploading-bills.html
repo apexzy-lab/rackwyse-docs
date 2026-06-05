@@ -4,320 +4,100 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Uploading Bills — Rackwyse Docs</title>
-  <meta name="description" content="How to export and upload billing data from AWS, GCP, and Azure to Rackwyse."/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta name="description" content="How to export and upload AWS, GCP, and Azure billing CSVs to Rackwyse."/>
   <link rel="stylesheet" href="/css/docs.css"/>
 </head>
 <body>
-<header class="topbar">
-  <a href="/" class="topbar-logo">
-    <div class="topbar-logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 13L8 3L12 13H4Z" fill="#060c0a" opacity="0.9"/></svg></div>
-    <span class="topbar-logo-text">Rackwyse</span>
-    <span class="topbar-logo-badge">Docs</span>
-  </a>
-  <div class="topbar-search">
-    <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 10L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    <input type="text" id="search-input" placeholder="Search documentation..." autocomplete="off"/>
-    <div id="search-results"></div>
-  </div>
-  <div class="topbar-links">
-    <a href="https://app.rackwyse.com" class="topbar-link" target="_blank">App ↗</a>
-    <a href="https://app.rackwyse.com/register" class="topbar-link topbar-link-primary" target="_blank">Get Started</a>
-  </div>
-</header>
-<div class="layout">
-<nav class="sidebar">
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Overview</div>
-    <a href="/" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg>Home</a>
-    <a href="/pages/getting-started.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L10.5 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H5.5L8 1Z" fill-opacity=".3" stroke="currentColor" stroke-width="1.2"/></svg>Getting Started</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Uploading Bills</div>
-    <a href="/pages/uploading-bills.html" class="sidebar-link active"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1V10M5 4L8 1L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M2 11V13C2 13.6 2.4 14 3 14H13C13.6 14 14 13.6 14 13V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Uploading Your First Bill</a>
-    <a href="#aws" class="sidebar-link" style="padding-left:36px;font-size:12px">☁️ AWS</a>
-    <a href="#gcp" class="sidebar-link" style="padding-left:36px;font-size:12px">🔵 GCP</a>
-    <a href="#azure" class="sidebar-link" style="padding-left:36px;font-size:12px">🔷 Azure</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Analysis</div>
-    <a href="/pages/understanding-reports.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 12h2v2H2zM5 9h2v5H5zM8 6h2v8H8zM11 3h2v11h-2z" fill-opacity=".7"/></svg>Understanding Your Report</a>
-    <a href="/pages/savings-tracker.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 10L6 6L9 9L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Savings Tracker</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Account & Billing</div>
-    <a href="/pages/billing.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".2" stroke="currentColor" stroke-width="1.5"/><path d="M1 7H15" stroke="currentColor" stroke-width="1.5"/></svg>Plans & Billing</a>
-    <a href="/pages/account.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="5" r="3" fill-opacity=".3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14C2 11.2 4.7 9 8 9C11.3 9 14 11.2 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Account Settings</a>
-    <a href="/pages/connections.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="4" cy="8" r="2.5" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="4" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="12" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 7L10 5M6.5 9L10 11" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Cloud Connections</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Help</div>
-    <a href="/pages/faq.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6.5" fill-opacity=".1" stroke="currentColor" stroke-width="1.3"/><path d="M6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10 6C10 7.1 9 7.6 8 8.4V9M8 11.5V12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>FAQ</a>
-    <a href="mailto:support@rackwyse.com" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".15" stroke="currentColor" stroke-width="1.3"/><path d="M1 5L8 9L15 5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Contact Support</a>
-  </div>
-</nav>
-<div style="flex:1;overflow:hidden">
-<main class="main">
-  <div class="breadcrumb">
-    <a href="/">Docs</a><span>›</span>
-    <a href="/pages/getting-started.html">Getting Started</a><span>›</span>
-    <span>Uploading Bills</span>
-  </div>
-
-  <div class="page-header">
-    <div class="page-eyebrow">Uploading Bills</div>
-    <h1 class="page-title">Upload your first cloud bill</h1>
-    <p class="page-desc">Export your billing data from AWS, GCP, or Azure and upload it to Rackwyse for analysis. No API keys or cloud credentials required.</p>
-  </div>
-
-  <div class="callout callout-tip">
-    <div class="callout-icon">💡</div>
-    <div class="callout-body">
-      <div class="callout-title">No credentials needed</div>
-      Rackwyse analyses billing export files — plain CSV files you download from your cloud console. You never need to give Rackwyse API keys, IAM credentials, or cloud access permissions just to upload a bill.
-    </div>
-  </div>
-
-  <div class="provider-chips" style="margin-bottom:32px">
-    <a href="#aws" class="chip chip-aws" style="text-decoration:none">☁️ AWS Cost &amp; Usage Report</a>
-    <a href="#gcp" class="chip chip-gcp" style="text-decoration:none">🔵 GCP Billing Export</a>
-    <a href="#azure" class="chip chip-azure" style="text-decoration:none">🔷 Azure Usage CSV</a>
-  </div>
-
-  <!-- AWS -->
-  <h2 id="aws">☁️ Amazon Web Services (AWS)</h2>
-  <p>AWS provides billing data through the <strong>Cost &amp; Usage Report (CUR)</strong> — a detailed CSV file containing every line item on your bill. Here is how to download it.</p>
-
-  <h3 id="aws-billing-console">Option 1 — AWS Billing Console (quickest)</h3>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <div class="step-title">Open AWS Billing</div>
-        <div class="step-desc">Log in to the <a href="https://console.aws.amazon.com/billing" target="_blank">AWS Billing Console</a>. You need access to the root account or a user with <code>aws-portal:ViewBilling</code> permission.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <div class="step-title">Go to Bills</div>
-        <div class="step-desc">In the left navigation, click <strong>Bills</strong>. Select the month you want to analyse from the date picker at the top.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <div class="step-title">Download CSV</div>
-        <div class="step-desc">Click the <strong>Download CSV</strong> button at the top right. Save the file to your computer.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <div class="step-title">Upload to Rackwyse</div>
-        <div class="step-desc">Go to your <a href="https://app.rackwyse.com/dashboard" target="_blank">Rackwyse dashboard</a>, click <strong>+ Upload Bill</strong>, and select the CSV file you just downloaded.</div>
-      </div>
-    </div>
-  </div>
-
-  <h3 id="aws-cur">Option 2 — Cost &amp; Usage Report (most detailed)</h3>
-  <p>For a more detailed analysis, use the full Cost &amp; Usage Report. This provides resource-level detail including instance IDs, regions, and usage types.</p>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <div class="step-title">Open Cost &amp; Usage Reports</div>
-        <div class="step-desc">In the AWS Billing Console, click <strong>Cost &amp; Usage Reports</strong> in the left navigation, then click <strong>Create report</strong> if you have not set one up already.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <div class="step-title">Configure the report</div>
-        <div class="step-desc">Give it a name, enable <strong>Include resource IDs</strong>, and set the time granularity to <strong>Daily</strong>. Choose an S3 bucket for delivery.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <div class="step-title">Download from S3</div>
-        <div class="step-desc">Once the report is delivered (usually within 24 hours), navigate to your S3 bucket, find the report file, and download it. The file will be a <code>.csv.gz</code> or <code>.csv</code> file.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <div class="step-title">Upload to Rackwyse</div>
-        <div class="step-desc">Upload the CSV file directly. If the file is gzip-compressed (<code>.csv.gz</code>), decompress it first using any archive tool.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout callout-info">
-    <div class="callout-icon">ℹ️</div>
-    <div class="callout-body">
-      <div class="callout-title">Which month should I export?</div>
-      Export the most recent full month for the most accurate analysis. Partial months may underrepresent recurring costs like reserved instances and savings plans.
-    </div>
-  </div>
-
-  <!-- GCP -->
-  <h2 id="gcp">🔵 Google Cloud Platform (GCP)</h2>
-  <p>GCP provides billing data through <strong>Billing Export to CSV</strong> or through <strong>BigQuery</strong>. The CSV export is the easiest method.</p>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <div class="step-title">Open Cloud Billing</div>
-        <div class="step-desc">Go to the <a href="https://console.cloud.google.com/billing" target="_blank">Google Cloud Console</a> and navigate to <strong>Billing</strong> in the top-left menu.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <div class="step-title">Go to Reports</div>
-        <div class="step-desc">Click <strong>Reports</strong> in the left sidebar. Set the date range to the previous full month using the date picker on the right.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <div class="step-title">Export to CSV</div>
-        <div class="step-desc">Click the <strong>Download CSV</strong> button (the download icon in the top right of the chart area). This downloads a summary billing report.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <div class="step-title">Upload to Rackwyse</div>
-        <div class="step-desc">Upload the downloaded CSV to your <a href="https://app.rackwyse.com/dashboard" target="_blank">Rackwyse dashboard</a>.</div>
-      </div>
-    </div>
-  </div>
-
-  <h3>Alternative: Billing Export via BigQuery</h3>
-  <p>For more granular data, you can export GCP billing to BigQuery and then export from BigQuery to CSV. This provides SKU-level detail and is useful for large organisations with complex billing.</p>
-
-  <div class="callout callout-warn">
-    <div class="callout-icon">⚠️</div>
-    <div class="callout-body">
-      <div class="callout-title">BigQuery export requires setup</div>
-      BigQuery billing export must be configured before billing data starts flowing. It does not retroactively export historical data. If you have not set this up yet, use the Reports CSV method above.
-    </div>
-  </div>
-
-  <!-- AZURE -->
-  <h2 id="azure">🔷 Microsoft Azure</h2>
-  <p>Azure provides billing data through the <strong>Cost Management + Billing</strong> portal. You can download a usage details CSV directly.</p>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <div class="step-title">Open Cost Management</div>
-        <div class="step-desc">Log in to the <a href="https://portal.azure.com" target="_blank">Azure Portal</a> and search for <strong>Cost Management + Billing</strong> in the top search bar.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <div class="step-title">Go to Cost Analysis</div>
-        <div class="step-desc">In the left navigation, click <strong>Cost Management</strong> then <strong>Cost analysis</strong>. Select your subscription from the scope selector if prompted.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <div class="step-title">Set the date range</div>
-        <div class="step-desc">Use the date picker to select the previous full month. Change the view to <strong>Daily</strong> for more granular data.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <div class="step-title">Download CSV</div>
-        <div class="step-desc">Click the <strong>Download</strong> button (down arrow icon) and select <strong>Usage Details CSV</strong>. Choose the month and click Download.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">5</div>
-      <div class="step-content">
-        <div class="step-title">Upload to Rackwyse</div>
-        <div class="step-desc">Upload the downloaded CSV to your <a href="https://app.rackwyse.com/dashboard" target="_blank">Rackwyse dashboard</a>.</div>
-      </div>
-    </div>
-  </div>
-
-  <h2 id="upload-steps">Uploading to Rackwyse</h2>
-  <p>Once you have your billing CSV from any provider:</p>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <div class="step-title">Click + Upload Bill</div>
-        <div class="step-desc">On your dashboard, click the green <strong>+ Upload Bill</strong> button in the top right, or click the Upload Bill button in the onboarding guide.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <div class="step-title">Select your file</div>
-        <div class="step-desc">In the file picker, select your billing CSV. Supported file types: <code>.csv</code>. Maximum file size: 50MB.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <div class="step-title">Wait for analysis</div>
-        <div class="step-desc">Rackwyse analyses your bill in under 60 seconds. You will see a progress indicator while the analysis runs. Do not close the tab.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <div class="step-title">Review your report</div>
-        <div class="step-desc">When the analysis completes, your report appears in the dashboard. Click on it to see your findings, estimated savings, and fix instructions.</div>
-      </div>
-    </div>
-  </div>
-
-  <h2 id="troubleshooting">Troubleshooting upload issues</h2>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Error</th><th>Cause</th><th>Fix</th></tr></thead>
-      <tbody>
-        <tr><td>File too large</td><td>File exceeds 50MB</td><td>Export a single month instead of multiple months, or filter to a specific account</td></tr>
-        <tr><td>Invalid format</td><td>File is not a recognised billing CSV</td><td>Make sure you are downloading a billing/cost export, not a different report type</td></tr>
-        <tr><td>Analysis limit reached</td><td>You have used all analyses for the month</td><td>Upgrade your plan or wait for the monthly reset</td></tr>
-        <tr><td>Upload failed</td><td>Network error</td><td>Try again. If the problem persists, contact support@rackwyse.com</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="page-nav">
-    <a href="/pages/getting-started.html" class="page-nav-item">
-      <span class="page-nav-label">← Previous</span>
-      <span class="page-nav-title">Getting Started</span>
+<div class="docs-layout">
+  <aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-logo">
+      <div class="sidebar-logo-icon"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 4L10 9L13 6L14 12H2Z" fill="#060c0a"/></svg></div>
+      Rackwyse Docs
     </a>
-    <a href="/pages/understanding-reports.html" class="page-nav-item next">
-      <span class="page-nav-label">Next →</span>
-      <span class="page-nav-title">Understanding Your Report</span>
-    </a>
+    <div class="sidebar-top-links">
+      <a href="https://app.rackwyse.com" class="sidebar-top-link">App ↗</a>
+      <a href="https://app.rackwyse.com/register" class="sidebar-top-link">Get Started</a>
+    </div>
   </div>
-</main>
-<footer class="docs-footer">
-  <div>© 2026 Rackwyse. All rights reserved.</div>
-  <div style="display:flex;gap:20px"><a href="https://app.rackwyse.com">App</a><a href="mailto:support@rackwyse.com">Support</a></div>
-</footer>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">Overview</div>
+    <a href="/index.html" class="sidebar-link">Home</a>
+    <a href="/pages/getting-started.html" class="sidebar-link">Getting Started</a>
+
+    <div class="sidebar-section">Connecting Cloud</div>
+    <a href="/pages/connections.html" class="sidebar-link">Cloud Connections</a>
+    <a href="/pages/uploading-bills.html" class="sidebar-link">Uploading Bills (CSV)</a>
+
+    <div class="sidebar-section">Analysis</div>
+    <a href="/pages/understanding-reports.html" class="sidebar-link">Understanding Reports</a>
+    <a href="/pages/fix-commands.html" class="sidebar-link">Fix Commands</a>
+    <a href="/pages/savings-tracker.html" class="sidebar-link">Savings Tracker</a>
+    <a href="/pages/anomaly-alerts.html" class="sidebar-link">Anomaly Alerts</a>
+
+    <div class="sidebar-section">Team Features</div>
+    <a href="/pages/team.html" class="sidebar-link">Team Collaboration</a>
+    <a href="/pages/slack.html" class="sidebar-link">Slack Integration</a>
+
+    <div class="sidebar-section">Account & Billing</div>
+    <a href="/pages/billing.html" class="sidebar-link">Plans & Billing</a>
+    <a href="/pages/account.html" class="sidebar-link">Account Settings</a>
+    <a href="/pages/api.html" class="sidebar-link">API Access</a>
+
+    <div class="sidebar-section">Help</div>
+    <a href="/pages/faq.html" class="sidebar-link">FAQ</a>
+    <a href="mailto:support@rackwyse.com" class="sidebar-link">Contact Support</a>
+  </nav>
+  <div class="docs-footer">
+    <span>© 2026 Rackwyse</span>
+    <div style="display:flex;gap:12px">
+      <a href="https://app.rackwyse.com">App</a>
+      <a href="mailto:support@rackwyse.com">Support</a>
+    </div>
+  </div>
+</aside>
+  <main class="main">
+    
+<div class="breadcrumb"><a href="/index.html">Docs</a> › Uploading Bills</div>
+<h1>Uploading Bills (CSV)</h1>
+<p class="page-subtitle">If you prefer not to use a cloud connection, you can upload billing CSV exports directly. This works for all providers and requires no cloud credentials.</p>
+
+<div class="info-box info"><div class="info-icon">ℹ️</div><div>CSV uploads give you billing-based findings. <a href="/pages/connections.html">Cloud connections</a> additionally enable utilization-based findings (idle instances, over-provisioned resources) using CloudWatch/Cloud Monitoring data.</div></div>
+
+<h2 id="aws">☁️ AWS — Cost Explorer CSV</h2>
+<div class="steps">
+  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Go to AWS Billing Console</h3><p>Log in to AWS and navigate to <strong>Billing and Cost Management → Cost Explorer</strong>. Direct URL: <code>console.aws.amazon.com/billing</code></p></div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Set the date range</h3><p>Select the previous calendar month as your date range. Set granularity to <strong>Monthly</strong>. Group by <strong>Service</strong>.</p></div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Download the CSV</h3><p>Click <strong>Download CSV</strong> in the top right. Save the file.</p></div></div>
+  <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Upload to Rackwyse</h3><p>On your Rackwyse dashboard, click <strong>+ New Analysis → Upload Bill CSV</strong>, select the file, and choose <strong>AWS</strong> as the provider.</p></div></div>
 </div>
+
+<h2 id="gcp">🔵 GCP — Cloud Billing CSV</h2>
+<div class="steps">
+  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Open Cloud Billing Console</h3><p>Go to <a href="https://console.cloud.google.com/billing">GCP Billing Console</a> → select your billing account → <strong>Reports</strong>.</p></div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Set the time range</h3><p>Select the previous calendar month. Set grouping to <strong>Service</strong>.</p></div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Download CSV</h3><p>Click <strong>Download CSV</strong>. Save the file.</p></div></div>
+  <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Upload to Rackwyse</h3><p>On your dashboard, upload the file and select <strong>GCP</strong> as the provider.</p></div></div>
+</div>
+
+<h2 id="azure">🔷 Azure — Cost Management CSV</h2>
+<div class="steps">
+  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Open Azure Cost Management</h3><p>Go to <a href="https://portal.azure.com">Azure Portal</a> → <strong>Cost Management + Billing → Cost Analysis</strong>.</p></div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Set scope and time range</h3><p>Select your subscription scope. Set the time range to last month. Set granularity to <strong>Monthly</strong> and group by <strong>Service name</strong>.</p></div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Download CSV</h3><p>Click <strong>Download → CSV</strong>. Save the file.</p></div></div>
+  <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Upload to Rackwyse</h3><p>On your dashboard, upload the file and select <strong>Azure</strong> as the provider.</p></div></div>
+</div>
+
+<h2>File requirements</h2>
+<table>
+  <tr><th>Requirement</th><th>Detail</th></tr>
+  <tr><td>Format</td><td>CSV (.csv). Decompress .csv.gz before uploading.</td></tr>
+  <tr><td>Max file size</td><td>50MB</td></tr>
+  <tr><td>Date range</td><td>One calendar month recommended. Multi-month files work but findings use the full period total.</td></tr>
+</table>
+
+    <div class="page-nav"><a href="/pages/connections.html" class="page-nav-btn"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Cloud Connections</span></a><a href="/pages/understanding-reports.html" class="page-nav-btn next"><span class="page-nav-label">Next →</span><span class="page-nav-title">Understanding Reports</span></a></div>
+  </main>
 </div>
 <script src="/js/docs.js"></script>
 </body>

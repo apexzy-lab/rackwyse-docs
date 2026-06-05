@@ -4,180 +4,99 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Plans & Billing — Rackwyse Docs</title>
-  <meta name="description" content="Rackwyse plan comparison, upgrading, payment history, receipts, and managing your subscription."/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta name="description" content="Rackwyse pricing plans, upgrades, and payment management."/>
   <link rel="stylesheet" href="/css/docs.css"/>
 </head>
 <body>
-<header class="topbar">
-  <a href="/" class="topbar-logo">
-    <div class="topbar-logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 13L8 3L12 13H4Z" fill="#060c0a" opacity="0.9"/></svg></div>
-    <span class="topbar-logo-text">Rackwyse</span><span class="topbar-logo-badge">Docs</span>
-  </a>
-  <div class="topbar-search">
-    <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 10L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    <input type="text" id="search-input" placeholder="Search documentation..." autocomplete="off"/>
-    <div id="search-results"></div>
-  </div>
-  <div class="topbar-links">
-    <a href="https://app.rackwyse.com" class="topbar-link" target="_blank">App ↗</a>
-    <a href="https://app.rackwyse.com/register" class="topbar-link topbar-link-primary" target="_blank">Get Started</a>
-  </div>
-</header>
-<div class="layout">
-<nav class="sidebar">
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Overview</div>
-    <a href="/" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg>Home</a>
-    <a href="/pages/getting-started.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L10.5 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H5.5L8 1Z" fill-opacity=".3" stroke="currentColor" stroke-width="1.2"/></svg>Getting Started</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Uploading Bills</div>
-    <a href="/pages/uploading-bills.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1V10M5 4L8 1L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M2 11V13C2 13.6 2.4 14 3 14H13C13.6 14 14 13.6 14 13V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Uploading Your First Bill</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Analysis</div>
-    <a href="/pages/understanding-reports.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 12h2v2H2zM5 9h2v5H5zM8 6h2v8H8zM11 3h2v11h-2z" fill-opacity=".7"/></svg>Understanding Your Report</a>
-    <a href="/pages/savings-tracker.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 10L6 6L9 9L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Savings Tracker</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Account & Billing</div>
-    <a href="/pages/billing.html" class="sidebar-link active"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".2" stroke="currentColor" stroke-width="1.5"/><path d="M1 7H15" stroke="currentColor" stroke-width="1.5"/></svg>Plans & Billing</a>
-    <a href="/pages/account.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="5" r="3" fill-opacity=".3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14C2 11.2 4.7 9 8 9C11.3 9 14 11.2 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Account Settings</a>
-    <a href="/pages/connections.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="4" cy="8" r="2.5" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="4" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="12" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 7L10 5M6.5 9L10 11" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Cloud Connections</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Help</div>
-    <a href="/pages/faq.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6.5" fill-opacity=".1" stroke="currentColor" stroke-width="1.3"/><path d="M6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10 6C10 7.1 9 7.6 8 8.4V9M8 11.5V12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>FAQ</a>
-    <a href="mailto:support@rackwyse.com" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".15" stroke="currentColor" stroke-width="1.3"/><path d="M1 5L8 9L15 5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Contact Support</a>
-  </div>
-</nav>
-<div style="flex:1;overflow:hidden">
-<main class="main">
-  <div class="breadcrumb"><a href="/">Docs</a><span>›</span><span>Plans & Billing</span></div>
-  <div class="page-header">
-    <div class="page-eyebrow">Billing</div>
-    <h1 class="page-title">Plans & Billing</h1>
-    <p class="page-desc">Compare plans, upgrade your subscription, download receipts, and manage your billing settings.</p>
-  </div>
-
-  <h2 id="plans">Plans</h2>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Plan</th><th>Analyses/mo</th><th>Cloud connections</th><th>Price</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Free</strong></td><td>1</td><td>1</td><td>$0 — no credit card required</td></tr>
-        <tr><td><strong>Starter</strong></td><td>3</td><td>3</td><td>$49/month</td></tr>
-        <tr><td><strong>Pro</strong></td><td>20</td><td>10</td><td>$99/month</td></tr>
-        <tr><td><strong>Team</strong></td><td>100</td><td>Unlimited</td><td>$199/month</td></tr>
-        <tr><td><strong>Enterprise</strong></td><td>Unlimited</td><td>Unlimited</td><td>Contact us</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-tip">
-    <div class="callout-icon">💡</div>
-    <div class="callout-body">
-      <div class="callout-title">Analysis count resets monthly</div>
-      Your analysis count resets on the 1st of each month. Unused analyses do not roll over to the next month.
-    </div>
-  </div>
-
-  <h2 id="upgrading">Upgrading your plan</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <div class="step-title">Go to Account Settings</div>
-        <div class="step-desc">Click your avatar or name in the top right and select <strong>Account</strong>, or go to <a href="https://app.rackwyse.com/account" target="_blank">app.rackwyse.com/account</a>.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <div class="step-title">Click Billing & Plan</div>
-        <div class="step-desc">In the account sub-navigation, click <strong>Billing & Plan</strong>. You will see your current plan and the available upgrade options.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <div class="step-title">Select a plan</div>
-        <div class="step-desc">Click the <strong>Upgrade</strong> button on the plan you want. You will be taken to a secure Dodo Payments checkout page.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <div class="step-title">Complete payment</div>
-        <div class="step-desc">Enter your card details and complete the payment. Your plan upgrades immediately. You will be redirected to a confirmation page.</div>
-      </div>
-    </div>
-  </div>
-
-  <h2 id="receipts">Payment history & receipts</h2>
-  <p>All payments are recorded in your account and can be downloaded as PDF receipts for expense reporting and accounting.</p>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <div class="step-title">Go to Billing & Plan</div>
-        <div class="step-desc">Navigate to <strong>Account → Billing & Plan</strong>.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <div class="step-title">Find Payment History</div>
-        <div class="step-desc">Scroll down to the <strong>Payment History</strong> section. All past payments are listed with the date, amount, plan, and payment method.</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <div class="step-title">Download a receipt</div>
-        <div class="step-desc">Click the <strong>↓ Receipt</strong> button next to any payment. A receipt page opens with your full payment details. Click <strong>Download PDF</strong> to save it.</div>
-      </div>
-    </div>
-  </div>
-
-  <p>Receipts include: receipt number, payment date, plan name, amount, payment method, and your account email. They are formatted for expense submission.</p>
-
-  <h2 id="cancel">Cancelling your subscription</h2>
-  <p>To cancel your subscription, go to <strong>Account → Billing & Plan</strong> and click <strong>Manage / Cancel Subscription</strong>. Contact <a href="mailto:support@rackwyse.com">support@rackwyse.com</a> to process your cancellation.</p>
-
-  <div class="callout callout-info">
-    <div class="callout-icon">ℹ️</div>
-    <div class="callout-body">
-      <div class="callout-title">Access continues until period end</div>
-      When you cancel, you retain full access to your current plan until the end of your billing period. After that, your account reverts to the Free plan (1 analysis/month).
-    </div>
-  </div>
-
-  <h2 id="payment-methods">Accepted payment methods</h2>
-  <p>Rackwyse accepts payment via <strong>Dodo Payments</strong>, which supports Visa, Mastercard, and American Express cards in 150+ countries. We are working on adding PayPal as an additional option.</p>
-
-  <div class="page-nav">
-    <a href="/pages/savings-tracker.html" class="page-nav-item">
-      <span class="page-nav-label">← Previous</span>
-      <span class="page-nav-title">Savings Tracker</span>
+<div class="docs-layout">
+  <aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-logo">
+      <div class="sidebar-logo-icon"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 4L10 9L13 6L14 12H2Z" fill="#060c0a"/></svg></div>
+      Rackwyse Docs
     </a>
-    <a href="/pages/account.html" class="page-nav-item next">
-      <span class="page-nav-label">Next →</span>
-      <span class="page-nav-title">Account Settings</span>
-    </a>
+    <div class="sidebar-top-links">
+      <a href="https://app.rackwyse.com" class="sidebar-top-link">App ↗</a>
+      <a href="https://app.rackwyse.com/register" class="sidebar-top-link">Get Started</a>
+    </div>
   </div>
-</main>
-<footer class="docs-footer">
-  <div>© 2026 Rackwyse. All rights reserved.</div>
-  <div style="display:flex;gap:20px"><a href="https://app.rackwyse.com">App</a><a href="mailto:support@rackwyse.com">Support</a></div>
-</footer>
-</div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">Overview</div>
+    <a href="/index.html" class="sidebar-link">Home</a>
+    <a href="/pages/getting-started.html" class="sidebar-link">Getting Started</a>
+
+    <div class="sidebar-section">Connecting Cloud</div>
+    <a href="/pages/connections.html" class="sidebar-link">Cloud Connections</a>
+    <a href="/pages/uploading-bills.html" class="sidebar-link">Uploading Bills (CSV)</a>
+
+    <div class="sidebar-section">Analysis</div>
+    <a href="/pages/understanding-reports.html" class="sidebar-link">Understanding Reports</a>
+    <a href="/pages/fix-commands.html" class="sidebar-link">Fix Commands</a>
+    <a href="/pages/savings-tracker.html" class="sidebar-link">Savings Tracker</a>
+    <a href="/pages/anomaly-alerts.html" class="sidebar-link">Anomaly Alerts</a>
+
+    <div class="sidebar-section">Team Features</div>
+    <a href="/pages/team.html" class="sidebar-link">Team Collaboration</a>
+    <a href="/pages/slack.html" class="sidebar-link">Slack Integration</a>
+
+    <div class="sidebar-section">Account & Billing</div>
+    <a href="/pages/billing.html" class="sidebar-link">Plans & Billing</a>
+    <a href="/pages/account.html" class="sidebar-link">Account Settings</a>
+    <a href="/pages/api.html" class="sidebar-link">API Access</a>
+
+    <div class="sidebar-section">Help</div>
+    <a href="/pages/faq.html" class="sidebar-link">FAQ</a>
+    <a href="mailto:support@rackwyse.com" class="sidebar-link">Contact Support</a>
+  </nav>
+  <div class="docs-footer">
+    <span>© 2026 Rackwyse</span>
+    <div style="display:flex;gap:12px">
+      <a href="https://app.rackwyse.com">App</a>
+      <a href="mailto:support@rackwyse.com">Support</a>
+    </div>
+  </div>
+</aside>
+  <main class="main">
+    
+<div class="breadcrumb"><a href="/index.html">Docs</a> › Plans & Billing</div>
+<h1>Plans & Billing</h1>
+<p class="page-subtitle">Rackwyse offers monthly and annual plans for individuals and teams.</p>
+
+<h2>Current plans</h2>
+<table>
+  <tr><th>Plan</th><th>Analyses/month</th><th>Cloud connections</th><th>Price</th></tr>
+  <tr><td>Free Trial</td><td>1</td><td>1</td><td>$0 (14 days)</td></tr>
+  <tr><td>Starter</td><td>3</td><td>1</td><td>$49/mo or $468/yr</td></tr>
+  <tr><td>Pro</td><td>20</td><td>3</td><td>$99/mo or $948/yr</td></tr>
+  <tr><td>Team</td><td>100</td><td>Unlimited</td><td>$199/mo or $1,908/yr</td></tr>
+</table>
+<p>Annual plans save 20% vs monthly. All paid plans include AWS, GCP &amp; Azure support, all 99 detection rules, PDF export, shareable reports, and email support.</p>
+
+<h2>Free tier limits</h2>
+<p>Free and trial accounts see <strong>5 full findings</strong> per analysis with complete details including CLI fix commands. Additional findings are shown as locked cards with the savings amount visible. The locked savings total is shown in an upgrade banner.</p>
+
+<h2>Upgrading your plan</h2>
+<ol>
+  <li>Go to <strong>Account → Billing &amp; Plan</strong></li>
+  <li>Click <strong>Upgrade</strong> next to the plan you want</li>
+  <li>Complete payment via Dodo Payments (credit card, Apple Pay, or Google Pay)</li>
+  <li>Your plan upgrades immediately</li>
+</ol>
+
+<h2>Payment processor</h2>
+<p>Rackwyse processes payments via <strong>Dodo Payments</strong>, a Merchant of Record that handles global payment processing, tax compliance, and refunds.</p>
+
+<h2>Cancelling</h2>
+<p>Go to <strong>Account → Billing &amp; Plan → Manage Subscription</strong>. You can cancel at any time. Your plan remains active until the end of the current billing period.</p>
+
+<h2>Refunds</h2>
+<p>If you are not satisfied within the first 7 days of a paid subscription, contact <a href="mailto:support@rackwyse.com">support@rackwyse.com</a> for a full refund.</p>
+
+<h2>Annual billing</h2>
+<p>Annual plans are charged upfront for the full year at a 20% discount. Toggle between monthly and annual pricing on the <a href="https://app.rackwyse.com/pricing">pricing page</a>.</p>
+
+    <div class="page-nav"><a href="/pages/slack.html" class="page-nav-btn"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Slack Integration</span></a><a href="/pages/account.html" class="page-nav-btn next"><span class="page-nav-label">Next →</span><span class="page-nav-title">Account Settings</span></a></div>
+  </main>
 </div>
 <script src="/js/docs.js"></script>
 </body>

@@ -3,199 +3,120 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Understanding Your Report — Rackwyse Docs</title>
-  <meta name="description" content="How to read your Rackwyse analysis report — findings, severity levels, savings estimates, and fix instructions."/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <title>Understanding Reports — Rackwyse Docs</title>
+  <meta name="description" content="How to read Rackwyse findings, severity levels, and savings estimates."/>
   <link rel="stylesheet" href="/css/docs.css"/>
 </head>
 <body>
-<header class="topbar">
-  <a href="/" class="topbar-logo">
-    <div class="topbar-logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 13L8 3L12 13H4Z" fill="#060c0a" opacity="0.9"/></svg></div>
-    <span class="topbar-logo-text">Rackwyse</span>
-    <span class="topbar-logo-badge">Docs</span>
-  </a>
-  <div class="topbar-search">
-    <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 10L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    <input type="text" id="search-input" placeholder="Search documentation..." autocomplete="off"/>
-    <div id="search-results"></div>
-  </div>
-  <div class="topbar-links">
-    <a href="https://app.rackwyse.com" class="topbar-link" target="_blank">App ↗</a>
-    <a href="https://app.rackwyse.com/register" class="topbar-link topbar-link-primary" target="_blank">Get Started</a>
-  </div>
-</header>
-<div class="layout">
-<nav class="sidebar">
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Overview</div>
-    <a href="/" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg>Home</a>
-    <a href="/pages/getting-started.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L10.5 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H5.5L8 1Z" fill-opacity=".3" stroke="currentColor" stroke-width="1.2"/></svg>Getting Started</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Uploading Bills</div>
-    <a href="/pages/uploading-bills.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1V10M5 4L8 1L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M2 11V13C2 13.6 2.4 14 3 14H13C13.6 14 14 13.6 14 13V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Uploading Your First Bill</a>
-    <a href="/pages/uploading-bills.html#aws" class="sidebar-link" style="padding-left:36px;font-size:12px">☁️ AWS</a>
-    <a href="/pages/uploading-bills.html#gcp" class="sidebar-link" style="padding-left:36px;font-size:12px">🔵 GCP</a>
-    <a href="/pages/uploading-bills.html#azure" class="sidebar-link" style="padding-left:36px;font-size:12px">🔷 Azure</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Analysis</div>
-    <a href="/pages/understanding-reports.html" class="sidebar-link active"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 12h2v2H2zM5 9h2v5H5zM8 6h2v8H8zM11 3h2v11h-2z" fill-opacity=".7"/></svg>Understanding Your Report</a>
-    <a href="/pages/savings-tracker.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 10L6 6L9 9L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Savings Tracker</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Account & Billing</div>
-    <a href="/pages/billing.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".2" stroke="currentColor" stroke-width="1.5"/><path d="M1 7H15" stroke="currentColor" stroke-width="1.5"/></svg>Plans & Billing</a>
-    <a href="/pages/account.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="5" r="3" fill-opacity=".3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14C2 11.2 4.7 9 8 9C11.3 9 14 11.2 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>Account Settings</a>
-    <a href="/pages/connections.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="4" cy="8" r="2.5" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="4" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="12" r="2" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 7L10 5M6.5 9L10 11" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Cloud Connections</a>
-  </div>
-  <div class="sidebar-divider"></div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Help</div>
-    <a href="/pages/faq.html" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6.5" fill-opacity=".1" stroke="currentColor" stroke-width="1.3"/><path d="M6 6C6 4.9 6.9 4 8 4C9.1 4 10 4.9 10 6C10 7.1 9 7.6 8 8.4V9M8 11.5V12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>FAQ</a>
-    <a href="mailto:support@rackwyse.com" class="sidebar-link"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill-opacity=".15" stroke="currentColor" stroke-width="1.3"/><path d="M1 5L8 9L15 5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Contact Support</a>
-  </div>
-</nav>
-<div style="flex:1;overflow:hidden">
-<main class="main">
-  <div class="breadcrumb">
-    <a href="/">Docs</a><span>›</span><a href="/pages/uploading-bills.html">Uploading Bills</a><span>›</span><span>Understanding Reports</span>
-  </div>
-
-  <div class="page-header">
-    <div class="page-eyebrow">Analysis</div>
-    <h1 class="page-title">Understanding your report</h1>
-    <p class="page-desc">Learn how to read your Rackwyse analysis — findings, severity levels, savings estimates, and how to prioritise fixes.</p>
-  </div>
-
-  <h2 id="report-overview">Report overview</h2>
-  <p>After your bill is analysed, Rackwyse produces a report containing one or more <strong>findings</strong> — specific waste patterns or inefficiencies detected in your cloud spending. Each finding includes:</p>
-  <ul style="margin:12px 0 16px 24px;color:var(--text2);line-height:2">
-    <li>A plain-English description of the problem</li>
-    <li>A severity level (Critical, High, Medium, or Low)</li>
-    <li>An estimated monthly savings if you fix it</li>
-    <li>Specific steps to resolve the issue</li>
-    <li>The affected service or resource</li>
-  </ul>
-
-  <div class="callout callout-tip">
-    <div class="callout-icon">💡</div>
-    <div class="callout-body">
-      <div class="callout-title">Start with Critical and High findings</div>
-      Sort your findings by severity. Critical and High findings typically represent the largest savings opportunities and should be addressed first.
-    </div>
-  </div>
-
-  <h2 id="severity">Severity levels</h2>
-  <p>Every finding is assigned one of four severity levels based on the estimated monthly savings and the urgency of the issue.</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Severity</th><th>Typical savings</th><th>Examples</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><span class="badge badge-gray" style="background:#fff0f0;color:#b42318;border-color:rgba(240,68,56,.2)">🔴 Critical</span></td>
-          <td>$500+/month</td>
-          <td>Idle NAT Gateways, unused data transfer costs, massively oversized instances running 24/7</td>
-        </tr>
-        <tr>
-          <td><span class="badge badge-gray" style="background:#fff8ec;color:#a35c00;border-color:rgba(247,144,9,.2)">🟠 High</span></td>
-          <td>$100–$500/month</td>
-          <td>Unattached EBS volumes, oversized RDS instances, idle Elastic IPs</td>
-        </tr>
-        <tr>
-          <td><span class="badge badge-yellow">🟡 Medium</span></td>
-          <td>$20–$100/month</td>
-          <td>Underutilised reserved instances, old snapshots, unused load balancers</td>
-        </tr>
-        <tr>
-          <td><span class="badge badge-gray">⚪ Low</span></td>
-          <td>Under $20/month</td>
-          <td>Old log files, minor rightsizing opportunities, unused API gateway calls</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2 id="savings">Savings estimates</h2>
-  <p>Each finding shows an <strong>estimated monthly savings</strong> — the amount you could save per month if you implement the fix. These estimates are calculated based on:</p>
-  <ul style="margin:12px 0 16px 24px;color:var(--text2);line-height:2">
-    <li>The actual cost data from your billing export</li>
-    <li>Current AWS/GCP/Azure public pricing</li>
-    <li>Usage patterns detected in your bill (e.g. a resource with near-zero utilisation)</li>
-    <li>Known cost reduction benchmarks for each waste pattern type</li>
-  </ul>
-
-  <div class="callout callout-info">
-    <div class="callout-icon">ℹ️</div>
-    <div class="callout-body">
-      <div class="callout-title">Estimates are conservative</div>
-      Rackwyse uses conservative estimates to avoid overpromising. Actual savings may be higher, especially for infrastructure that has grown over time without regular review.
-    </div>
-  </div>
-
-  <h2 id="finding-types">Common finding types</h2>
-
-  <h3>Idle and unused resources</h3>
-  <p>Resources that exist but are not being used — or barely used. Classic examples: EC2 instances with less than 5% average CPU utilisation, unattached EBS volumes, Elastic IP addresses not associated with a running instance.</p>
-
-  <h3>Oversized instances</h3>
-  <p>Instances provisioned with more compute, memory, or storage than your workload actually needs. Rackwyse detects these by analysing the ratio of your instance costs to your actual utilisation patterns visible in billing data.</p>
-
-  <h3>Data transfer waste</h3>
-  <p>Cloud providers charge for data transfer between regions, availability zones, and the internet. Many teams overpay significantly here — for example, inter-AZ traffic that could be avoided by placing services in the same AZ, or egress traffic that could be reduced with a CDN.</p>
-
-  <h3>Reservation and savings plan inefficiency</h3>
-  <p>Reserved Instances and Savings Plans offer up to 72% discount over on-demand pricing — but only for the specific usage they cover. If your usage has changed since you purchased reservations, you may be paying for capacity you are not using.</p>
-
-  <h3>Storage waste</h3>
-  <p>Old EBS snapshots, S3 objects in expensive storage tiers, CloudWatch log groups with no retention policy, and unused databases all contribute to storage waste that compounds over time.</p>
-
-  <h3>Misconfigured services</h3>
-  <p>Services configured for high availability or large scale when neither is needed — for example, a multi-AZ RDS instance for a development database, or a NAT Gateway used for a handful of API calls per day.</p>
-
-  <h2 id="fix-instructions">Fix instructions</h2>
-  <p>Each finding includes step-by-step instructions for resolving the issue. These are specific to your cloud provider and the service affected. For example, a finding about an idle EC2 instance will include the exact steps to:</p>
-  <ul style="margin:12px 0 16px 24px;color:var(--text2);line-height:2">
-    <li>Identify which instance is idle</li>
-    <li>Verify it is safe to stop or terminate</li>
-    <li>Take a final snapshot if needed</li>
-    <li>Stop or terminate the instance</li>
-    <li>Verify the cost reduction on your next bill</li>
-  </ul>
-
-  <div class="callout callout-warn">
-    <div class="callout-icon">⚠️</div>
-    <div class="callout-body">
-      <div class="callout-title">Always verify before making changes</div>
-      Billing data alone cannot tell you whether a resource is truly safe to remove — only your team knows what each resource is used for. Always verify with your infrastructure team before stopping, terminating, or deleting any resource.
-    </div>
-  </div>
-
-  <h2 id="no-findings">What if there are no findings?</h2>
-  <p>If Rackwyse does not find any waste patterns, you will see a green message: <strong>"No waste patterns detected — your bill looks well-optimised!"</strong></p>
-  <p>This means either your infrastructure is genuinely well-optimised, or the billing export did not contain enough detail for Rackwyse to detect patterns. In the latter case, try exporting a more detailed report (e.g. the AWS Cost &amp; Usage Report with resource IDs enabled).</p>
-
-  <div class="page-nav">
-    <a href="/pages/uploading-bills.html" class="page-nav-item">
-      <span class="page-nav-label">← Previous</span>
-      <span class="page-nav-title">Uploading Your First Bill</span>
+<div class="docs-layout">
+  <aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="sidebar-logo">
+      <div class="sidebar-logo-icon"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 4L10 9L13 6L14 12H2Z" fill="#060c0a"/></svg></div>
+      Rackwyse Docs
     </a>
-    <a href="/pages/savings-tracker.html" class="page-nav-item next">
-      <span class="page-nav-label">Next →</span>
-      <span class="page-nav-title">Savings Tracker</span>
-    </a>
+    <div class="sidebar-top-links">
+      <a href="https://app.rackwyse.com" class="sidebar-top-link">App ↗</a>
+      <a href="https://app.rackwyse.com/register" class="sidebar-top-link">Get Started</a>
+    </div>
   </div>
-</main>
-<footer class="docs-footer">
-  <div>© 2026 Rackwyse. All rights reserved.</div>
-  <div style="display:flex;gap:20px"><a href="https://app.rackwyse.com">App</a><a href="mailto:support@rackwyse.com">Support</a></div>
-</footer>
-</div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">Overview</div>
+    <a href="/index.html" class="sidebar-link">Home</a>
+    <a href="/pages/getting-started.html" class="sidebar-link">Getting Started</a>
+
+    <div class="sidebar-section">Connecting Cloud</div>
+    <a href="/pages/connections.html" class="sidebar-link">Cloud Connections</a>
+    <a href="/pages/uploading-bills.html" class="sidebar-link">Uploading Bills (CSV)</a>
+
+    <div class="sidebar-section">Analysis</div>
+    <a href="/pages/understanding-reports.html" class="sidebar-link">Understanding Reports</a>
+    <a href="/pages/fix-commands.html" class="sidebar-link">Fix Commands</a>
+    <a href="/pages/savings-tracker.html" class="sidebar-link">Savings Tracker</a>
+    <a href="/pages/anomaly-alerts.html" class="sidebar-link">Anomaly Alerts</a>
+
+    <div class="sidebar-section">Team Features</div>
+    <a href="/pages/team.html" class="sidebar-link">Team Collaboration</a>
+    <a href="/pages/slack.html" class="sidebar-link">Slack Integration</a>
+
+    <div class="sidebar-section">Account & Billing</div>
+    <a href="/pages/billing.html" class="sidebar-link">Plans & Billing</a>
+    <a href="/pages/account.html" class="sidebar-link">Account Settings</a>
+    <a href="/pages/api.html" class="sidebar-link">API Access</a>
+
+    <div class="sidebar-section">Help</div>
+    <a href="/pages/faq.html" class="sidebar-link">FAQ</a>
+    <a href="mailto:support@rackwyse.com" class="sidebar-link">Contact Support</a>
+  </nav>
+  <div class="docs-footer">
+    <span>© 2026 Rackwyse</span>
+    <div style="display:flex;gap:12px">
+      <a href="https://app.rackwyse.com">App</a>
+      <a href="mailto:support@rackwyse.com">Support</a>
+    </div>
+  </div>
+</aside>
+  <main class="main">
+    
+<div class="breadcrumb"><a href="/index.html">Docs</a> › Understanding Reports</div>
+<h1>Understanding Your Report</h1>
+<p class="page-subtitle">Your Rackwyse report shows every waste pattern found in your billing data, ranked by potential savings. Here is how to read it.</p>
+
+<h2>The dashboard overview</h2>
+<p>After an analysis completes, the dashboard shows four key metrics at the top:</p>
+<ul>
+  <li><strong>Waste Identified</strong> — total potential monthly savings across all findings</li>
+  <li><strong>Total Findings</strong> — number of waste patterns detected</li>
+  <li><strong>Latest Monthly Spend</strong> — your total cloud spend for the analysed period</li>
+  <li><strong>Reports on File</strong> — number of analyses stored in your account</li>
+</ul>
+
+<h2>Spend velocity tracker</h2>
+<p>The <strong>Spend velocity</strong> widget shows month-over-month spend comparison per provider. Green arrows indicate spend is down vs last month. Red arrows indicate spend is up. This updates automatically when new analyses complete.</p>
+
+<h2>Priority stack</h2>
+<p>Below the metrics, <strong>Your top 5 actions this week</strong> shows the highest-ROI findings ranked by savings divided by effort. This is the best place to start — fix these 5 things first.</p>
+
+<h2>Findings list</h2>
+<p>Each finding in your report includes:</p>
+<ul>
+  <li><strong>Severity</strong> — Critical, High, Medium, or Low</li>
+  <li><strong>Title</strong> — plain-English description of the waste pattern</li>
+  <li><strong>Description</strong> — detailed explanation of why this is waste and what is causing it</li>
+  <li><strong>Estimated savings</strong> — monthly dollar amount if the issue is fixed</li>
+  <li><strong>Fix effort</strong> — Easy (~10 min), Medium (~30 min), or Hard (~60+ min)</li>
+</ul>
+
+<h2>Severity levels</h2>
+<table>
+  <tr><th>Severity</th><th>Meaning</th><th>Typical action</th></tr>
+  <tr><td>🔴 Critical</td><td>High-confidence waste with significant savings potential</td><td>Fix this week</td></tr>
+  <tr><td>🟡 High</td><td>Clear waste, straightforward fix</td><td>Fix this sprint</td></tr>
+  <tr><td>🔵 Medium</td><td>Likely waste, requires verification</td><td>Review and fix if confirmed</td></tr>
+  <tr><td>⚪ Low</td><td>Possible optimisation, low impact</td><td>Fix when convenient</td></tr>
+</table>
+
+<h2>Expanding a finding</h2>
+<p>Click the arrow on any finding to expand it and see:</p>
+<ul>
+  <li><strong>CLI tab</strong> — exact copy-paste command to fix the issue (see <a href="/pages/fix-commands.html">Fix Commands</a>)</li>
+  <li><strong>Console Steps tab</strong> — where to go in the cloud UI to make the change</li>
+  <li><strong>Docs link</strong> — official cloud provider documentation</li>
+  <li><strong>Assign</strong> — assign the finding to a team member with a due date</li>
+  <li><strong>Status</strong> — mark as Open, In Progress, Done, or Snoozed</li>
+</ul>
+
+<h2>Free tier limits</h2>
+<p>On the free tier, you see <strong>5 full findings</strong> with complete details. Remaining findings are shown as locked cards with the savings amount visible. Upgrade to unlock all findings.</p>
+
+<h2>PDF report</h2>
+<p>Click <strong>PDF Report</strong> on any analysis to download a professionally formatted report suitable for sharing with your CFO or engineering leadership. The report includes all findings, fix instructions, and a savings summary page.</p>
+
+<h2>Sharing a report</h2>
+<p>Click <strong>Share</strong> to generate a public read-only link to your analysis. The link shows findings and savings estimates without requiring login. You can revoke the link at any time.</p>
+
+    <div class="page-nav"><a href="/pages/uploading-bills.html" class="page-nav-btn"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Uploading Bills</span></a><a href="/pages/fix-commands.html" class="page-nav-btn next"><span class="page-nav-label">Next →</span><span class="page-nav-title">Fix Commands</span></a></div>
+  </main>
 </div>
 <script src="/js/docs.js"></script>
 </body>
