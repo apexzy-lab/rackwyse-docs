@@ -1,56 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Cloud Connections — Rackwyse Docs</title>
-  <meta name="description" content="Connect AWS, GCP, and Azure to Rackwyse for automatic monthly analysis."/>
+  <meta name="description" content="Connect AWS, GCP, and Azure to Rackwyse."/>
   <link rel="stylesheet" href="/css/docs.css"/>
 </head>
 <body>
+<div class="topbar" id="topbar">
+  <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="/index.html" class="topbar-logo">
+    <img src="https://app.rackwyse.com/brand/logo-dark.png" alt="Rackwyse" class="topbar-logo-img" id="topbar-logo-img"/>
+  </a>
+  <div class="topbar-right">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <span class="theme-icon-light">☀️</span>
+      <span class="theme-icon-dark">🌙</span>
+    </button>
+    <a href="https://app.rackwyse.com" class="topbar-btn" target="_blank">App ↗</a>
+    <a href="https://app.rackwyse.com/register" class="topbar-btn topbar-btn-primary">Get Started</a>
+  </div>
+</div>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
 <div class="docs-layout">
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a href="/" class="sidebar-logo">
-      <div class="sidebar-logo-icon"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 4L10 9L13 6L14 12H2Z" fill="#060c0a"/></svg></div>
-      Rackwyse Docs
+    <a href="/index.html" class="sidebar-logo">
+      <img src="https://app.rackwyse.com/brand/logo-dark.png" alt="Rackwyse" class="sidebar-logo-img" id="sidebar-logo-img"/>
     </a>
     <div class="sidebar-top-links">
-      <a href="https://app.rackwyse.com" class="sidebar-top-link">App ↗</a>
+      <a href="https://app.rackwyse.com" class="sidebar-top-link" target="_blank">App ↗</a>
       <a href="https://app.rackwyse.com/register" class="sidebar-top-link">Get Started</a>
     </div>
   </div>
-  <nav class="sidebar-nav">
+
+  <!-- Search -->
+  <div class="sidebar-search">
+    <div class="search-wrap">
+      <span class="search-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </span>
+      <input type="text" class="search-input" id="search-input" placeholder="Search docs..." autocomplete="off"/>
+      <kbd class="search-kbd">⌘K</kbd>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+
+  <nav class="sidebar-nav" id="sidebar-nav">
     <div class="sidebar-section">Overview</div>
-    <a href="/index.html" class="sidebar-link">Home</a>
-    <a href="/pages/getting-started.html" class="sidebar-link">Getting Started</a>
+<a href="/index.html" class="sidebar-link "><span class="sidebar-link-icon">🏠</span>Home</a>
+<a href="/pages/getting-started.html" class="sidebar-link "><span class="sidebar-link-icon">🚀</span>Getting Started</a>
+<div class="sidebar-section">Connecting Cloud</div>
+<a href="/pages/connections.html" class="sidebar-link active"><span class="sidebar-link-icon">🔗</span>Cloud Connections</a>
+<a href="/pages/uploading-bills.html" class="sidebar-link "><span class="sidebar-link-icon">📤</span>Uploading Bills (CSV)</a>
+<div class="sidebar-section">Analysis</div>
+<a href="/pages/understanding-reports.html" class="sidebar-link "><span class="sidebar-link-icon">📊</span>Understanding Reports</a>
+<a href="/pages/fix-commands.html" class="sidebar-link "><span class="sidebar-link-icon">⚡</span>Fix Commands</a>
+<a href="/pages/savings-tracker.html" class="sidebar-link "><span class="sidebar-link-icon">📈</span>Savings Tracker</a>
+<a href="/pages/anomaly-alerts.html" class="sidebar-link "><span class="sidebar-link-icon">🔔</span>Anomaly Alerts</a>
+<div class="sidebar-section">Team Features</div>
+<a href="/pages/team.html" class="sidebar-link "><span class="sidebar-link-icon">👥</span>Team Collaboration</a>
+<a href="/pages/slack.html" class="sidebar-link "><span class="sidebar-link-icon">💬</span>Slack Integration</a>
+<div class="sidebar-section">Account & Billing</div>
+<a href="/pages/billing.html" class="sidebar-link "><span class="sidebar-link-icon">💳</span>Plans & Billing</a>
+<a href="/pages/account.html" class="sidebar-link "><span class="sidebar-link-icon">⚙️</span>Account Settings</a>
+<a href="/pages/api.html" class="sidebar-link "><span class="sidebar-link-icon">🔑</span>API Access</a>
+<div class="sidebar-section">Help</div>
+<a href="/pages/faq.html" class="sidebar-link "><span class="sidebar-link-icon">❓</span>FAQ</a>
+<a href="mailto:support@rackwyse.com" class="sidebar-link "><span class="sidebar-link-icon">✉️</span>Contact Support</a>
 
-    <div class="sidebar-section">Connecting Cloud</div>
-    <a href="/pages/connections.html" class="sidebar-link">Cloud Connections</a>
-    <a href="/pages/uploading-bills.html" class="sidebar-link">Uploading Bills (CSV)</a>
-
-    <div class="sidebar-section">Analysis</div>
-    <a href="/pages/understanding-reports.html" class="sidebar-link">Understanding Reports</a>
-    <a href="/pages/fix-commands.html" class="sidebar-link">Fix Commands</a>
-    <a href="/pages/savings-tracker.html" class="sidebar-link">Savings Tracker</a>
-    <a href="/pages/anomaly-alerts.html" class="sidebar-link">Anomaly Alerts</a>
-
-    <div class="sidebar-section">Team Features</div>
-    <a href="/pages/team.html" class="sidebar-link">Team Collaboration</a>
-    <a href="/pages/slack.html" class="sidebar-link">Slack Integration</a>
-
-    <div class="sidebar-section">Account & Billing</div>
-    <a href="/pages/billing.html" class="sidebar-link">Plans & Billing</a>
-    <a href="/pages/account.html" class="sidebar-link">Account Settings</a>
-    <a href="/pages/api.html" class="sidebar-link">API Access</a>
-
-    <div class="sidebar-section">Help</div>
-    <a href="/pages/faq.html" class="sidebar-link">FAQ</a>
-    <a href="mailto:support@rackwyse.com" class="sidebar-link">Contact Support</a>
   </nav>
-  <div class="docs-footer">
+
+  <div class="sidebar-footer">
     <span>© 2026 Rackwyse</span>
-    <div style="display:flex;gap:12px">
+    <div class="sidebar-footer-links">
       <a href="https://app.rackwyse.com">App</a>
       <a href="mailto:support@rackwyse.com">Support</a>
     </div>
@@ -58,84 +84,160 @@
 </aside>
   <main class="main">
     
-<div class="breadcrumb"><a href="/index.html">Docs</a> › Cloud Connections</div>
+<div class="breadcrumb"><a href="/index.html">Docs</a><span class="breadcrumb-sep">›</span>Cloud Connections</div>
 <h1>Cloud Connections</h1>
-<p class="page-subtitle">Connect your cloud accounts to Rackwyse for automatic monthly billing syncs. All connections are read-only — Rackwyse never modifies your infrastructure.</p>
-
-<div class="info-box info"><div class="info-icon">ℹ️</div><div><strong>Connections vs manual uploads:</strong> You do not need to connect a cloud account to use Rackwyse. You can always upload billing CSVs manually. Cloud connections enable automatic monthly syncs and utilization-based findings (idle instances, over-provisioned resources).</div></div>
-
+<p class="page-subtitle">Connect your cloud accounts for automatic monthly billing syncs. All connections are read-only — Rackwyse never modifies your infrastructure.</p>
+<div class="info-box info"><div class="info-icon">ℹ️</div><div><strong>Connections vs manual uploads:</strong> You do not need to connect a cloud account to use Rackwyse. Connections enable automatic monthly syncs and utilization-based findings (idle instances, over-provisioned resources via CloudWatch).</div></div>
 <h2>☁️ AWS — IAM Role</h2>
-<p>Rackwyse uses an <strong>IAM Role</strong> with read-only billing and CloudWatch permissions. No access keys are stored — Rackwyse assumes your role using STS with a unique External ID.</p>
-
+<p>Rackwyse uses an <strong>IAM Role</strong> with read-only billing and CloudWatch permissions. No access keys stored — Rackwyse assumes your role via STS with a unique External ID.</p>
 <h3>Required IAM policies</h3>
 <ul>
   <li><code>AWSCostExplorerReadOnlyAccess</code> — read billing and cost data</li>
-  <li><code>CloudWatchReadOnlyAccess</code> — enables utilization-based findings (idle/oversized EC2)</li>
+  <li><code>CloudWatchReadOnlyAccess</code> — enables idle/oversized EC2 detection via real utilization data</li>
 </ul>
-
 <h3>Setup steps</h3>
 <div class="steps">
-  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Open Connections in Rackwyse</h3><p>Click <strong>Connections</strong> in the sidebar. Note the <strong>External ID</strong> shown — you will need it below.</p></div></div>
-  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Create an IAM Role in AWS</h3><p>Go to <a href="https://console.aws.amazon.com/iam">AWS IAM Console</a> → Roles → Create Role. Select <strong>Another AWS account</strong>, enter the Rackwyse Account ID shown on the Connections page, check <strong>Require external ID</strong>, and paste the External ID from step 1.</p></div></div>
-  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Attach required policies</h3><p>On the Permissions page, attach <code>AWSCostExplorerReadOnlyAccess</code> and <code>CloudWatchReadOnlyAccess</code>.</p></div></div>
-  <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Name and create the role</h3><p>Name the role <code>RackwyseReadOnly</code> and create it. Copy the <strong>Role ARN</strong> from the summary page.</p></div></div>
-  <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Paste the ARN in Rackwyse</h3><p>Back in the Rackwyse Connections page, paste the Role ARN and click <strong>Connect</strong>. Rackwyse verifies the connection immediately.</p></div></div>
+  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Open Connections in Rackwyse</h3><p>Click <strong>Connections</strong> in the sidebar. Note the <strong>External ID</strong> — you need it below.</p></div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Create an IAM Role in AWS</h3><p>Go to <a href="https://console.aws.amazon.com/iam">AWS IAM Console</a> → Roles → Create Role. Select <strong>Another AWS account</strong>, enter the Rackwyse Account ID shown on the Connections page, check <strong>Require external ID</strong>, and paste the External ID.</p></div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Attach required policies</h3><p>Attach <code>AWSCostExplorerReadOnlyAccess</code> and <code>CloudWatchReadOnlyAccess</code>.</p></div></div>
+  <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Name and create the role</h3><p>Name it <code>RackwyseReadOnly</code>. Copy the <strong>Role ARN</strong> from the summary page.</p></div></div>
+  <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Paste the ARN in Rackwyse</h3><p>Back in Rackwyse Connections, paste the Role ARN and click <strong>Connect</strong>. Connection is verified immediately.</p></div></div>
 </div>
-
-<div class="info-box tip"><div class="info-icon">💡</div><div>AWS connections auto-sync on the day of the month you configure (default: 1st). You can also click <strong>Sync Now</strong> at any time for an immediate analysis.</div></div>
-
+<div class="info-box tip"><div class="info-icon">💡</div><div>AWS connections auto-sync on the day of month you configure. Click <strong>Sync Now</strong> for an immediate analysis at any time.</div></div>
 <h2>🔵 GCP — OAuth + BigQuery</h2>
-<p>GCP connections use <strong>Google OAuth</strong> with read-only billing access. After connecting, Rackwyse queries your Cloud Billing BigQuery export for detailed cost data.</p>
-
+<p>GCP connections use <strong>Google OAuth</strong> with read-only billing access. After connecting, Rackwyse queries your Cloud Billing BigQuery export.</p>
 <h3>Prerequisites</h3>
 <ul>
   <li>Enable <strong>Cloud Billing API</strong> in your GCP project</li>
   <li>Enable <strong>BigQuery billing export</strong> in GCP Console → Billing → Billing export → BigQuery export</li>
-  <li>Wait 24–48 hours for the first billing data to appear in BigQuery after enabling export</li>
+  <li>Wait 24–48 hours for first data to appear after enabling export</li>
 </ul>
-
 <h3>Setup steps</h3>
 <div class="steps">
   <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Click "Connect with Google"</h3><p>On the Connections page, click <strong>Connect with Google</strong> and complete the OAuth flow. Grant read-only billing access.</p></div></div>
-  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Enter your BigQuery details</h3><p>After OAuth, a setup modal appears asking for:<br/>• <strong>GCP Project ID</strong> — the project containing your billing export (e.g. <code>my-company-project</code>)<br/>• <strong>BigQuery Dataset Name</strong> — the dataset where billing export is configured (e.g. <code>billing_export</code>)<br/>• <strong>Region</strong> — where your BigQuery dataset is located (US, EU, etc.)</p></div></div>
-  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Save and enable sync</h3><p>Click <strong>Save &amp; Enable Sync</strong>. Rackwyse tests the BigQuery connection immediately. If the table has no data yet, the connection stays active and will sync automatically once data populates.</p></div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Enter your BigQuery details</h3><p>A setup modal appears after OAuth. Enter:<br/>• <strong>GCP Project ID</strong> — project containing your billing export<br/>• <strong>BigQuery Dataset Name</strong> — dataset where billing export is configured<br/>• <strong>Region</strong> — US, EU, etc.</p></div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Save and enable sync</h3><p>Click <strong>Save &amp; Enable Sync</strong>. If the BigQuery table has no data yet, the connection stays active and syncs automatically once data populates.</p></div></div>
 </div>
-
-<div class="info-box warn"><div class="info-icon">⚠️</div><div>BigQuery billing export only captures usage going forward from the date you enable it. Historical data is not backfilled. Allow 24–48 hours for the first data to appear.</div></div>
-
+<div class="info-box warn"><div class="info-icon">⚠️</div><div>BigQuery billing export only captures usage going forward from when you enable it. Allow 24–48 hours for first data to appear.</div></div>
 <h2>🔷 Azure — OAuth</h2>
-<p>Azure connections use <strong>Microsoft OAuth</strong> with <code>Cost Management Reader</code> role on your subscription.</p>
-
-<h3>Prerequisites</h3>
-<ul>
-  <li>Your Azure account must have a subscription with Cost Management Reader role</li>
-  <li>The Rackwyse app must be registered in Azure AD as multi-tenant</li>
-</ul>
-
-<h3>Setup steps</h3>
+<p>Azure connections use <strong>Microsoft OAuth</strong> with Cost Management Reader role on your subscription.</p>
 <div class="steps">
-  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Click "Connect with Microsoft"</h3><p>On the Connections page, click <strong>Connect with Microsoft</strong>. Sign in with your Azure account and grant the requested read-only permissions.</p></div></div>
-  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Connection verified</h3><p>Rackwyse automatically detects your subscription and begins the first sync. You will be redirected to the Connections page showing your subscription ID and sync status.</p></div></div>
+  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Click "Connect with Microsoft"</h3><p>On the Connections page, click <strong>Connect with Microsoft</strong>. Sign in with your Azure account and grant the read-only permissions requested.</p></div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Connection verified</h3><p>Rackwyse detects your subscription and begins the first sync. You are redirected to the Connections page showing your subscription ID and sync status.</p></div></div>
 </div>
-
-<h2>Connection limits by plan</h2>
+<h2>Connection limits</h2>
 <table>
-  <tr><th>Plan</th><th>Cloud connections</th></tr>
+  <tr><th>Plan</th><th>Connections</th></tr>
   <tr><td>Free Trial</td><td>1</td></tr>
   <tr><td>Starter</td><td>1</td></tr>
   <tr><td>Pro</td><td>3</td></tr>
   <tr><td>Team</td><td>Unlimited</td></tr>
 </table>
-
 <h2>Auto-sync settings</h2>
-<p>Each connection has an <strong>Auto-sync</strong> toggle and a configurable sync day (1st–28th of the month). When enabled, Rackwyse automatically pulls your latest billing data on the configured day and runs a new analysis. Anomaly alerts fire automatically if spend increases significantly.</p>
-
+<p>Each connection has an <strong>Auto-sync</strong> toggle and a configurable sync day (1st–28th). When enabled, Rackwyse pulls billing data on that day and runs a new analysis automatically. Anomaly alerts fire if spend increases significantly.</p>
 <h2>Disconnecting</h2>
-<p>To disconnect a cloud account, click <strong>Disconnect</strong> on the Connections page. For AWS, also delete the IAM role in your AWS console to fully revoke access. For GCP/Azure, revoke the OAuth token in your Google/Microsoft account settings.</p>
-
+<p>Click <strong>Disconnect</strong> on the Connections page. For AWS, also delete the IAM role in your AWS console to fully revoke access.</p>
     <div class="page-nav"><a href="/pages/getting-started.html" class="page-nav-btn"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Getting Started</span></a><a href="/pages/uploading-bills.html" class="page-nav-btn next"><span class="page-nav-label">Next →</span><span class="page-nav-title">Uploading Bills</span></a></div>
   </main>
 </div>
-<script src="/js/docs.js"></script>
+<script>
+// Theme
+var THEME_KEY = 'rw-docs-theme';
+function getTheme(){return localStorage.getItem(THEME_KEY)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark')}
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem(THEME_KEY,t);
+  var dark='https://app.rackwyse.com/brand/logo-dark.png';
+  var white='https://app.rackwyse.com/brand/logo-white.png';
+  var src=t==='light'?white:dark;
+  ['sidebar-logo-img','topbar-logo-img'].forEach(function(id){
+    var el=document.getElementById(id);if(el)el.src=src;
+  });
+}
+document.addEventListener('DOMContentLoaded',function(){
+  setTheme(getTheme());
+  var btn=document.getElementById('theme-toggle');
+  if(btn)btn.addEventListener('click',function(){setTheme(getTheme()==='dark'?'light':'dark')});
+
+  // Active sidebar link
+  var path=window.location.pathname.replace(/\/$/,'');
+  document.querySelectorAll('.sidebar-link').forEach(function(a){
+    var href=a.getAttribute('href').replace(/\/$/,'');
+    if(href===path||href===path+'.html'||(path==='/'&&href==='/index.html')){
+      a.classList.add('active');
+    }
+  });
+
+  // Mobile menu
+  var mobileBtn=document.getElementById('mobile-menu-btn');
+  var sidebar=document.getElementById('sidebar');
+  var overlay=document.getElementById('sidebar-overlay');
+  function openMenu(){sidebar.classList.add('open');if(overlay)overlay.classList.add('open')}
+  function closeMenu(){sidebar.classList.remove('open');if(overlay)overlay.classList.remove('open')}
+  if(mobileBtn)mobileBtn.addEventListener('click',openMenu);
+  if(overlay)overlay.addEventListener('click',closeMenu);
+
+  // Search
+  var PAGES=[
+    {title:'Home',section:'Overview',url:'/index.html',keywords:'rackwyse cloud cost optimization home overview'},
+    {title:'Getting Started',section:'Overview',url:'/pages/getting-started.html',keywords:'account register signup login verify email first analysis onboarding'},
+    {title:'Cloud Connections',section:'Connecting Cloud',url:'/pages/connections.html',keywords:'aws iam role gcp oauth azure bigquery connect account auto sync'},
+    {title:'Uploading Bills (CSV)',section:'Connecting Cloud',url:'/pages/uploading-bills.html',keywords:'upload csv billing export aws gcp azure file manual'},
+    {title:'Understanding Reports',section:'Analysis',url:'/pages/understanding-reports.html',keywords:'findings report savings severity critical high medium low dashboard pdf share'},
+    {title:'Fix Commands',section:'Analysis',url:'/pages/fix-commands.html',keywords:'cli command fix console steps assign finding status done in progress'},
+    {title:'Savings Tracker',section:'Analysis',url:'/pages/savings-tracker.html',keywords:'savings tracker confirmed fixed mark resolve progress history'},
+    {title:'Anomaly Alerts',section:'Analysis',url:'/pages/anomaly-alerts.html',keywords:'anomaly alert spike spend email daily monthly cloudwatch'},
+    {title:'Team Collaboration',section:'Team Features',url:'/pages/team.html',keywords:'team invite member role admin viewer cost overview weekly digest'},
+    {title:'Slack Integration',section:'Team Features',url:'/pages/slack.html',keywords:'slack webhook integration notification alert message'},
+    {title:'Plans & Billing',section:'Account & Billing',url:'/pages/billing.html',keywords:'plans pricing upgrade starter pro team enterprise billing payment'},
+    {title:'Account Settings',section:'Account & Billing',url:'/pages/account.html',keywords:'account settings profile password 2fa two factor notifications theme'},
+    {title:'API Access',section:'Account & Billing',url:'/pages/api.html',keywords:'api key rest endpoint analyse analyses status programmatic'},
+    {title:'FAQ',section:'Help',url:'/pages/faq.html',keywords:'faq questions answers security refund cancel limits formats'},
+  ];
+  var searchInput=document.getElementById('search-input');
+  var searchResults=document.getElementById('search-results');
+  if(searchInput&&searchResults){
+    function doSearch(q){
+      q=q.toLowerCase().trim();
+      searchResults.innerHTML='';
+      if(!q){searchResults.classList.remove('open');return}
+      var results=PAGES.filter(function(p){
+        return p.title.toLowerCase().includes(q)||p.keywords.toLowerCase().includes(q)||p.section.toLowerCase().includes(q);
+      }).slice(0,6);
+      if(!results.length){
+        searchResults.innerHTML='<div class="search-empty">No results for "'+q+'"</div>';
+      } else {
+        results.forEach(function(p){
+          var a=document.createElement('a');
+          a.className='search-result';a.href=p.url;
+          a.innerHTML='<span class="search-result-title">'+p.title+'</span><span class="search-result-section">'+p.section+'</span>';
+          searchResults.appendChild(a);
+        });
+      }
+      searchResults.classList.add('open');
+    }
+    searchInput.addEventListener('input',function(){doSearch(this.value)});
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.sidebar-search'))searchResults.classList.remove('open');
+    });
+    document.addEventListener('keydown',function(e){
+      if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();searchInput.focus();searchInput.select()}
+      if(e.key==='Escape'){searchResults.classList.remove('open');searchInput.blur()}
+    });
+  }
+
+  // Copy buttons
+  document.querySelectorAll('pre').forEach(function(pre){
+    var btn=document.createElement('button');
+    btn.className='copy-btn';btn.textContent='Copy';
+    btn.addEventListener('click',function(){
+      navigator.clipboard.writeText(pre.querySelector('code')?pre.querySelector('code').textContent:pre.textContent).then(function(){
+        btn.textContent='Copied!';setTimeout(function(){btn.textContent='Copy'},1500);
+      });
+    });
+    pre.style.position='relative';pre.appendChild(btn);
+  });
+});
+</script>
 </body>
 </html>

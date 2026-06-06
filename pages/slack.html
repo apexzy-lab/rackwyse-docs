@@ -1,56 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Slack Integration — Rackwyse Docs</title>
-  <meta name="description" content="Send Rackwyse alerts and analysis results to your Slack channel."/>
+  <meta name="description" content="Post Rackwyse alerts to Slack."/>
   <link rel="stylesheet" href="/css/docs.css"/>
 </head>
 <body>
+<div class="topbar" id="topbar">
+  <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="/index.html" class="topbar-logo">
+    <img src="https://app.rackwyse.com/brand/logo-dark.png" alt="Rackwyse" class="topbar-logo-img" id="topbar-logo-img"/>
+  </a>
+  <div class="topbar-right">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <span class="theme-icon-light">☀️</span>
+      <span class="theme-icon-dark">🌙</span>
+    </button>
+    <a href="https://app.rackwyse.com" class="topbar-btn" target="_blank">App ↗</a>
+    <a href="https://app.rackwyse.com/register" class="topbar-btn topbar-btn-primary">Get Started</a>
+  </div>
+</div>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
 <div class="docs-layout">
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a href="/" class="sidebar-logo">
-      <div class="sidebar-logo-icon"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 12L6 4L10 9L13 6L14 12H2Z" fill="#060c0a"/></svg></div>
-      Rackwyse Docs
+    <a href="/index.html" class="sidebar-logo">
+      <img src="https://app.rackwyse.com/brand/logo-dark.png" alt="Rackwyse" class="sidebar-logo-img" id="sidebar-logo-img"/>
     </a>
     <div class="sidebar-top-links">
-      <a href="https://app.rackwyse.com" class="sidebar-top-link">App ↗</a>
+      <a href="https://app.rackwyse.com" class="sidebar-top-link" target="_blank">App ↗</a>
       <a href="https://app.rackwyse.com/register" class="sidebar-top-link">Get Started</a>
     </div>
   </div>
-  <nav class="sidebar-nav">
+
+  <!-- Search -->
+  <div class="sidebar-search">
+    <div class="search-wrap">
+      <span class="search-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </span>
+      <input type="text" class="search-input" id="search-input" placeholder="Search docs..." autocomplete="off"/>
+      <kbd class="search-kbd">⌘K</kbd>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+
+  <nav class="sidebar-nav" id="sidebar-nav">
     <div class="sidebar-section">Overview</div>
-    <a href="/index.html" class="sidebar-link">Home</a>
-    <a href="/pages/getting-started.html" class="sidebar-link">Getting Started</a>
+<a href="/index.html" class="sidebar-link "><span class="sidebar-link-icon">🏠</span>Home</a>
+<a href="/pages/getting-started.html" class="sidebar-link "><span class="sidebar-link-icon">🚀</span>Getting Started</a>
+<div class="sidebar-section">Connecting Cloud</div>
+<a href="/pages/connections.html" class="sidebar-link "><span class="sidebar-link-icon">🔗</span>Cloud Connections</a>
+<a href="/pages/uploading-bills.html" class="sidebar-link "><span class="sidebar-link-icon">📤</span>Uploading Bills (CSV)</a>
+<div class="sidebar-section">Analysis</div>
+<a href="/pages/understanding-reports.html" class="sidebar-link "><span class="sidebar-link-icon">📊</span>Understanding Reports</a>
+<a href="/pages/fix-commands.html" class="sidebar-link "><span class="sidebar-link-icon">⚡</span>Fix Commands</a>
+<a href="/pages/savings-tracker.html" class="sidebar-link "><span class="sidebar-link-icon">📈</span>Savings Tracker</a>
+<a href="/pages/anomaly-alerts.html" class="sidebar-link "><span class="sidebar-link-icon">🔔</span>Anomaly Alerts</a>
+<div class="sidebar-section">Team Features</div>
+<a href="/pages/team.html" class="sidebar-link "><span class="sidebar-link-icon">👥</span>Team Collaboration</a>
+<a href="/pages/slack.html" class="sidebar-link active"><span class="sidebar-link-icon">💬</span>Slack Integration</a>
+<div class="sidebar-section">Account & Billing</div>
+<a href="/pages/billing.html" class="sidebar-link "><span class="sidebar-link-icon">💳</span>Plans & Billing</a>
+<a href="/pages/account.html" class="sidebar-link "><span class="sidebar-link-icon">⚙️</span>Account Settings</a>
+<a href="/pages/api.html" class="sidebar-link "><span class="sidebar-link-icon">🔑</span>API Access</a>
+<div class="sidebar-section">Help</div>
+<a href="/pages/faq.html" class="sidebar-link "><span class="sidebar-link-icon">❓</span>FAQ</a>
+<a href="mailto:support@rackwyse.com" class="sidebar-link "><span class="sidebar-link-icon">✉️</span>Contact Support</a>
 
-    <div class="sidebar-section">Connecting Cloud</div>
-    <a href="/pages/connections.html" class="sidebar-link">Cloud Connections</a>
-    <a href="/pages/uploading-bills.html" class="sidebar-link">Uploading Bills (CSV)</a>
-
-    <div class="sidebar-section">Analysis</div>
-    <a href="/pages/understanding-reports.html" class="sidebar-link">Understanding Reports</a>
-    <a href="/pages/fix-commands.html" class="sidebar-link">Fix Commands</a>
-    <a href="/pages/savings-tracker.html" class="sidebar-link">Savings Tracker</a>
-    <a href="/pages/anomaly-alerts.html" class="sidebar-link">Anomaly Alerts</a>
-
-    <div class="sidebar-section">Team Features</div>
-    <a href="/pages/team.html" class="sidebar-link">Team Collaboration</a>
-    <a href="/pages/slack.html" class="sidebar-link">Slack Integration</a>
-
-    <div class="sidebar-section">Account & Billing</div>
-    <a href="/pages/billing.html" class="sidebar-link">Plans & Billing</a>
-    <a href="/pages/account.html" class="sidebar-link">Account Settings</a>
-    <a href="/pages/api.html" class="sidebar-link">API Access</a>
-
-    <div class="sidebar-section">Help</div>
-    <a href="/pages/faq.html" class="sidebar-link">FAQ</a>
-    <a href="mailto:support@rackwyse.com" class="sidebar-link">Contact Support</a>
   </nav>
-  <div class="docs-footer">
+
+  <div class="sidebar-footer">
     <span>© 2026 Rackwyse</span>
-    <div style="display:flex;gap:12px">
+    <div class="sidebar-footer-links">
       <a href="https://app.rackwyse.com">App</a>
       <a href="mailto:support@rackwyse.com">Support</a>
     </div>
@@ -58,39 +84,125 @@
 </aside>
   <main class="main">
     
-<div class="breadcrumb"><a href="/index.html">Docs</a> › Slack Integration</div>
+<div class="breadcrumb"><a href="/index.html">Docs</a><span class="breadcrumb-sep">›</span>Slack Integration</div>
 <h1>Slack Integration</h1>
-<p class="page-subtitle">Post analysis results, anomaly alerts, and weekly summaries directly to your Slack channel via webhook.</p>
-
+<p class="page-subtitle">Post analysis results, anomaly alerts, and weekly summaries to your Slack channel via webhook.</p>
 <h2>What Rackwyse posts to Slack</h2>
 <ul>
-  <li><strong>Analysis complete</strong> — when a new analysis finishes (upload or auto-sync)</li>
+  <li><strong>Analysis complete</strong> — when a new analysis finishes</li>
   <li><strong>Anomaly alerts</strong> — when spend spikes 15%+ month-over-month</li>
-  <li><strong>Auto-sync complete</strong> — summary of findings from automatic monthly syncs</li>
+  <li><strong>Auto-sync complete</strong> — summary from automatic monthly syncs</li>
 </ul>
-<p>Each Slack message includes provider, billing period, total spend, potential savings, top 5 findings, and a direct link to the dashboard.</p>
-
-<h2>Setting up the webhook</h2>
+<p>Each message includes provider, billing period, total spend, potential savings, top 5 findings, and a direct dashboard link.</p>
+<h2>Setup steps</h2>
 <div class="steps">
-  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Create a Slack Incoming Webhook</h3><p>Go to <a href="https://api.slack.com/apps">api.slack.com/apps</a> → Create New App → From Scratch. Name it "Rackwyse". Under <strong>Incoming Webhooks</strong>, activate and add to a channel. Copy the webhook URL.</p></div></div>
-  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Add webhook URL to Rackwyse</h3><p>Go to <strong>Account → Preferences → Integrations</strong>. Paste the webhook URL in the <strong>Slack Webhook URL</strong> field and click <strong>Save</strong>.</p></div></div>
-  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Test the connection</h3><p>Click <strong>Test</strong> next to the Slack webhook URL. A test message will appear in your Slack channel confirming the connection works.</p></div></div>
+  <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Create a Slack Incoming Webhook</h3><p>Go to <a href="https://api.slack.com/apps">api.slack.com/apps</a> → Create New App → From Scratch. Under <strong>Incoming Webhooks</strong>, activate and add to a channel. Copy the webhook URL.</p></div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Add webhook URL to Rackwyse</h3><p>Go to <strong>Account → Preferences → Integrations</strong>. Paste the webhook URL and click <strong>Save</strong>.</p></div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Test the connection</h3><p>Click <strong>Test</strong> — a test message will appear in your Slack channel.</p></div></div>
 </div>
-
 <h2>Generic webhook</h2>
-<p>In addition to Slack, Rackwyse supports a <strong>Generic Webhook URL</strong> for integrating with any webhook-compatible service (PagerDuty, Teams, Discord, custom endpoints).</p>
-<p>The generic webhook payload is a JSON object with:</p>
-<ul>
-  <li><code>event</code> — event type (e.g. <code>analysis.complete</code>)</li>
-  <li><code>timestamp</code> — ISO 8601 timestamp</li>
-  <li><code>analysis</code> — provider, period, totalSpend, potentialSavings, findingsCount</li>
-  <li><code>findings</code> — array of top findings with ruleId, title, severity, estimatedSavings</li>
-  <li><code>dashboardUrl</code> — direct link to the analysis</li>
-</ul>
-
+<p>Rackwyse also supports a <strong>Generic Webhook URL</strong> for PagerDuty, Teams, Discord, or custom endpoints. The payload is a JSON object with <code>event</code>, <code>timestamp</code>, <code>analysis</code>, <code>findings</code>, and <code>dashboardUrl</code>.</p>
     <div class="page-nav"><a href="/pages/team.html" class="page-nav-btn"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Team Collaboration</span></a><a href="/pages/billing.html" class="page-nav-btn next"><span class="page-nav-label">Next →</span><span class="page-nav-title">Plans & Billing</span></a></div>
   </main>
 </div>
-<script src="/js/docs.js"></script>
+<script>
+// Theme
+var THEME_KEY = 'rw-docs-theme';
+function getTheme(){return localStorage.getItem(THEME_KEY)||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark')}
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem(THEME_KEY,t);
+  var dark='https://app.rackwyse.com/brand/logo-dark.png';
+  var white='https://app.rackwyse.com/brand/logo-white.png';
+  var src=t==='light'?white:dark;
+  ['sidebar-logo-img','topbar-logo-img'].forEach(function(id){
+    var el=document.getElementById(id);if(el)el.src=src;
+  });
+}
+document.addEventListener('DOMContentLoaded',function(){
+  setTheme(getTheme());
+  var btn=document.getElementById('theme-toggle');
+  if(btn)btn.addEventListener('click',function(){setTheme(getTheme()==='dark'?'light':'dark')});
+
+  // Active sidebar link
+  var path=window.location.pathname.replace(/\/$/,'');
+  document.querySelectorAll('.sidebar-link').forEach(function(a){
+    var href=a.getAttribute('href').replace(/\/$/,'');
+    if(href===path||href===path+'.html'||(path==='/'&&href==='/index.html')){
+      a.classList.add('active');
+    }
+  });
+
+  // Mobile menu
+  var mobileBtn=document.getElementById('mobile-menu-btn');
+  var sidebar=document.getElementById('sidebar');
+  var overlay=document.getElementById('sidebar-overlay');
+  function openMenu(){sidebar.classList.add('open');if(overlay)overlay.classList.add('open')}
+  function closeMenu(){sidebar.classList.remove('open');if(overlay)overlay.classList.remove('open')}
+  if(mobileBtn)mobileBtn.addEventListener('click',openMenu);
+  if(overlay)overlay.addEventListener('click',closeMenu);
+
+  // Search
+  var PAGES=[
+    {title:'Home',section:'Overview',url:'/index.html',keywords:'rackwyse cloud cost optimization home overview'},
+    {title:'Getting Started',section:'Overview',url:'/pages/getting-started.html',keywords:'account register signup login verify email first analysis onboarding'},
+    {title:'Cloud Connections',section:'Connecting Cloud',url:'/pages/connections.html',keywords:'aws iam role gcp oauth azure bigquery connect account auto sync'},
+    {title:'Uploading Bills (CSV)',section:'Connecting Cloud',url:'/pages/uploading-bills.html',keywords:'upload csv billing export aws gcp azure file manual'},
+    {title:'Understanding Reports',section:'Analysis',url:'/pages/understanding-reports.html',keywords:'findings report savings severity critical high medium low dashboard pdf share'},
+    {title:'Fix Commands',section:'Analysis',url:'/pages/fix-commands.html',keywords:'cli command fix console steps assign finding status done in progress'},
+    {title:'Savings Tracker',section:'Analysis',url:'/pages/savings-tracker.html',keywords:'savings tracker confirmed fixed mark resolve progress history'},
+    {title:'Anomaly Alerts',section:'Analysis',url:'/pages/anomaly-alerts.html',keywords:'anomaly alert spike spend email daily monthly cloudwatch'},
+    {title:'Team Collaboration',section:'Team Features',url:'/pages/team.html',keywords:'team invite member role admin viewer cost overview weekly digest'},
+    {title:'Slack Integration',section:'Team Features',url:'/pages/slack.html',keywords:'slack webhook integration notification alert message'},
+    {title:'Plans & Billing',section:'Account & Billing',url:'/pages/billing.html',keywords:'plans pricing upgrade starter pro team enterprise billing payment'},
+    {title:'Account Settings',section:'Account & Billing',url:'/pages/account.html',keywords:'account settings profile password 2fa two factor notifications theme'},
+    {title:'API Access',section:'Account & Billing',url:'/pages/api.html',keywords:'api key rest endpoint analyse analyses status programmatic'},
+    {title:'FAQ',section:'Help',url:'/pages/faq.html',keywords:'faq questions answers security refund cancel limits formats'},
+  ];
+  var searchInput=document.getElementById('search-input');
+  var searchResults=document.getElementById('search-results');
+  if(searchInput&&searchResults){
+    function doSearch(q){
+      q=q.toLowerCase().trim();
+      searchResults.innerHTML='';
+      if(!q){searchResults.classList.remove('open');return}
+      var results=PAGES.filter(function(p){
+        return p.title.toLowerCase().includes(q)||p.keywords.toLowerCase().includes(q)||p.section.toLowerCase().includes(q);
+      }).slice(0,6);
+      if(!results.length){
+        searchResults.innerHTML='<div class="search-empty">No results for "'+q+'"</div>';
+      } else {
+        results.forEach(function(p){
+          var a=document.createElement('a');
+          a.className='search-result';a.href=p.url;
+          a.innerHTML='<span class="search-result-title">'+p.title+'</span><span class="search-result-section">'+p.section+'</span>';
+          searchResults.appendChild(a);
+        });
+      }
+      searchResults.classList.add('open');
+    }
+    searchInput.addEventListener('input',function(){doSearch(this.value)});
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.sidebar-search'))searchResults.classList.remove('open');
+    });
+    document.addEventListener('keydown',function(e){
+      if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();searchInput.focus();searchInput.select()}
+      if(e.key==='Escape'){searchResults.classList.remove('open');searchInput.blur()}
+    });
+  }
+
+  // Copy buttons
+  document.querySelectorAll('pre').forEach(function(pre){
+    var btn=document.createElement('button');
+    btn.className='copy-btn';btn.textContent='Copy';
+    btn.addEventListener('click',function(){
+      navigator.clipboard.writeText(pre.querySelector('code')?pre.querySelector('code').textContent:pre.textContent).then(function(){
+        btn.textContent='Copied!';setTimeout(function(){btn.textContent='Copy'},1500);
+      });
+    });
+    pre.style.position='relative';pre.appendChild(btn);
+  });
+});
+</script>
 </body>
 </html>
